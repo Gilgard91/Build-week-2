@@ -54,19 +54,16 @@ body {
   font-family: "Circular Std Black", sans-serif;
 }
 
-
-.arrows i{
-    
-    height: 32px;
-    width: 32px;
-    background-color: rgb(30, 30, 30);
-    margin: 0 10px 0 0;
-    padding: 10px;
-    border-radius: 100%;
-    
+.arrows i {
+  height: 32px;
+  width: 32px;
+  background-color: rgb(30, 30, 30);
+  margin: 0 10px 0 0;
+  padding: 10px;
+  border-radius: 100%;
 }
 
-.right-column{
+.right-column {
   padding: 10px;
 }
 
@@ -75,16 +72,13 @@ body {
   align-items: center;
 }
 
-
-
 .user {
   display: flex;
   margin-top: 30px;
   column-gap: 10px;
-  
 }
 
-.user img{
+.user img {
   margin-top: 2px;
   width: 35px;
   border-radius: 50%;
@@ -99,18 +93,100 @@ body {
   margin-left: auto;
 }
 
-.user-content{
+.user-content {
   row-gap: 3px;
 }
 
-.user-content h4{
+.user-content h4 {
   font-size: 16px;
 }
 
-.user-content span{
+.user-content span {
   font-size: 12px;
 }
 
-.user-title{
+.user-title {
   column-gap: 30px;
+}
+#artist-column {
+  background-color: #1d1d1d;
+}
+#artist-column #image-div {
+  width: 100%;
+  position: relative;
+  background-image: url("https://bautts.files.wordpress.com/2015/07/yellowcard-e1468266598440.jpg");
+  min-height: calc(100vh - 55%);
+  background-size: cover;
+}
+
+#artist-column #title-div {
+  margin-left: 10px;
+  /* transform: translateY(-165px); */
+  position: absolute;
+  bottom: 10px;
+}
+#artist-column #title-div span img {
+  width: 20px;
+}
+#artist-column #title-div span:first-of-type {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+#artist-column #title-div h1 {
+  margin-bottom: 14px;
+  font-weight: bolder;
+  font-size: 4rem;
+}
+
+#artist-column .play-button {
+  background-color: #1fdf64;
+  color: black;
+  border: 0;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+
+.play-button i::before {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  height: 100%;
+  width: 100%;
+}
+#artist-column .main-part {
+  padding: 1rem;
+}
+#artist-column .following-button {
+  border: 1px solid white;
+  background-color: #1d1d1d;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 4px 12px;
+}
+#artist-column #top-section {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+#artist-column .popular-songs {
+}
+#artist-column .popular-songs .song {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+}
+#artist-column .song img {
+  width: 2.2rem;
+}
+
+#artist-column .song > div {
+  display: flex;
+  gap: 0.5rem;
 }
