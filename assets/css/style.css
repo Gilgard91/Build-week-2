@@ -1,0 +1,68 @@
+html {
+  font-family: "Circular Std Black", sans-serif;
+}
+
+body {
+  color: rgb(173, 173, 173);
+}
+
+.left-column {
+  background-color: black;
+  width: 350px;
+  padding-right: 2px;
+  padding-left: 20px;
+}
+
+.center-column {
+  background-color: grey;
+  flex-grow: 1;
+}
+
+.right-column {
+  background-color: black;
+  width: 250px;
+}
+
+.main-content {
+  height: 100vh;
+}
+
+.playlist {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.menu > span {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  margin: 3px;
+  font-weight: bold;
+}
+
+.playlist {
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+.menu {
+  border-bottom: 1px solid;
+  width: 93%;
+}
+
+.navbar a {
+  font-family: "Circular Std Black", sans-serif;
+}
+
+
+.arrows i{
+    
+    height: 32px;
+    width: 32px;
+    background-color: rgb(30, 30, 30);
+    margin: 0 10px 0 0;
+    padding: 10px;
+    border-radius: 100%;
+    
+}
+
