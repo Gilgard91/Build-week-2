@@ -1,9 +1,22 @@
+@font-face {
+  font-family: "Circular Std";
+  src: url("./fonts/CircularStd-Black.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  box-sizing: border-box;
+}
+
 html {
-  font-family: "Circular Std Black", sans-serif;
+  font-family: "CircularStd-Black.otf", sans-serif;
+  
 }
 
 body {
   color: rgb(173, 173, 173);
+  
 }
 
 .left-column {
@@ -14,7 +27,7 @@ body {
 }
 
 .center-column {
-  background-color: grey;
+  background-color: #2e2e2e;
   flex-grow: 1;
 }
 
@@ -54,19 +67,16 @@ body {
   font-family: "Circular Std Black", sans-serif;
 }
 
-
-.arrows i{
-    
-    height: 32px;
-    width: 32px;
-    background-color: rgb(30, 30, 30);
-    margin: 0 10px 0 0;
-    padding: 10px;
-    border-radius: 100%;
-    
+.arrows i {
+  height: 32px;
+  width: 32px;
+  background-color: rgb(30, 30, 30);
+  margin: 0 10px 0 0;
+  padding: 10px;
+  border-radius: 100%;
 }
 
-.right-column{
+.right-column {
   padding: 10px;
 }
 
@@ -75,16 +85,13 @@ body {
   align-items: center;
 }
 
-
-
 .user {
   display: flex;
   margin-top: 30px;
   column-gap: 10px;
-  
 }
 
-.user img{
+.user img {
   margin-top: 2px;
   width: 35px;
   border-radius: 50%;
@@ -99,18 +106,101 @@ body {
   margin-left: auto;
 }
 
-.user-content{
+.user-content {
   row-gap: 3px;
 }
 
-.user-content h4{
+.user-content h4 {
   font-size: 16px;
 }
 
-.user-content span{
+.user-content span {
   font-size: 12px;
 }
 
-.user-title{
+.user-title {
   column-gap: 30px;
+}
+
+.album-large-div {
+  background: linear-gradient(
+    9deg,
+    rgba(0, 0, 0, 1) 51%,
+    rgb(69, 69, 69) 100%
+  );
+  column-gap: 20px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.album-large-div img {
+  padding: 10px 0;
+}
+
+.album-large-div h1 {
+  margin: 0;
+  font-size: 55px;
+}
+
+.album-large-content {
+  row-gap: 10px;
+}
+.album-large-content-buttons {
+  column-gap: 20px;
+}
+
+.album-large-content-buttons button {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 40px;
+  background-color: #1ed760;
+}
+
+.album-large-content-buttons button:nth-child(2) {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.album-small-div{
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+ 
+}
+
+.album-small-card{
+  background-color: #454545;
+  color: white;
+}
+
+.album-medium-div{
+  color: white;
+  
+}
+
+.album-medium-div-title{
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.album-medium-div-title h3{
+  font-size: 25px;
+}
+
+.album-medium-div-title span:nth-child(2){
+  font-size: 15px;
+  color: #c9c9c9;
+}
+
+.album-medium-card{
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.card-img-top{
+  padding: 10px;
+  border-radius: 15px;
 }
