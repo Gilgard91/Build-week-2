@@ -22,7 +22,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-    
   </head>
   <body>
     <div class="main-content d-flex">
@@ -122,12 +121,17 @@
               src="./assets/img/main/image-10.jpg"
               style="width: 200px"
               alt=""
+              id="album-large-img"
             />
             <div class="album-large-content d-flex flex-column">
               <span>ALBUM</span>
-              <h1>VIOLA (feat. Salmo)</h1>
-              <span>Fedez, Salmo</span>
-              <span>Ascolta il nuovo singolo di Fedez e Salmo!</span>
+              <div class="row">
+                <h1 class="col-xs-6" id="album-large-title"><a href="./album.html?id=">VIOLA (feat. Salmo)</a></h1>
+              </div>
+              <span id="album-large-contributors">Fedez, Salmo</span>
+              <span id="album-large-description"
+                >Ascolta il nuovo singolo di Fedez e Salmo!</span
+              >
               <div class="album-large-content-buttons d-flex">
                 <button>Play</button><button>Salva</button>
               </div>
@@ -135,8 +139,8 @@
           </div>
           <div class="album-small-div d-flex flex-column">
             <h2>Buonasera</h2>
-            <div class="row g-3">
-              <div class="col-4">
+            <div id="row-1" class="row g-3">
+              <!-- <div class="col-4">
                 <div
                   class="album-small-card card d-flex flex-row align-items-center"
                 >
@@ -231,7 +235,7 @@
                     <p class="card-text">Titolo di album di prova</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="album-medium-div">
@@ -242,8 +246,8 @@
               <span>VISUALIZZA TUTTO</span>
             </div>
 
-            <div class="row px-3">
-              <div class="col">
+            <div id="row-2" class="row px-3">
+              <!-- <div class="col">
                 <div class="album-medium-card card" style="max-width: 240px">
                   <img
                     class="card-img-top"
@@ -302,7 +306,7 @@
                     <p class="card-text">Titolo di album di prova</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

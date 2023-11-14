@@ -5,18 +5,16 @@
   font-style: normal;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 html {
   font-family: "CircularStd-Black.otf", sans-serif;
-  
 }
 
 body {
   color: rgb(173, 173, 173);
-  
 }
 
 .left-column {
@@ -123,11 +121,7 @@ body {
 }
 
 .album-large-div {
-  background: linear-gradient(
-    9deg,
-    rgba(0, 0, 0, 1) 51%,
-    rgb(69, 69, 69) 100%
-  );
+  background: linear-gradient(9deg, rgba(0, 0, 0, 1) 51%, rgb(69, 69, 69) 100%);
   column-gap: 20px;
   color: white;
   font-weight: bold;
@@ -142,6 +136,12 @@ body {
 .album-large-div h1 {
   margin: 0;
   font-size: 55px;
+}
+
+#album-large-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .album-large-content {
@@ -164,44 +164,42 @@ body {
   border: 1px solid white;
 }
 
-.album-small-div{
+.album-small-div {
   color: white;
   font-weight: bold;
   margin-bottom: 20px;
- 
 }
 
-.album-small-card{
+.album-small-card {
   background-color: #454545;
   color: white;
 }
 
-.album-medium-div{
+.album-medium-div {
   color: white;
-  
 }
 
-.album-medium-div-title{
+.album-medium-div-title {
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-.album-medium-div-title h3{
+.album-medium-div-title h3 {
   font-size: 25px;
 }
 
-.album-medium-div-title span:nth-child(2){
+.album-medium-div-title span:nth-child(2) {
   font-size: 15px;
   color: #c9c9c9;
 }
 
-.album-medium-card{
+.album-medium-card {
   background-color: #1c1c1c;
   color: white;
+  height: 282px;
 }
 
-.card-img-top{
+.card-img-top {
   padding: 10px;
   border-radius: 15px;
 }
-
