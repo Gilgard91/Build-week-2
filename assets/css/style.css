@@ -443,31 +443,50 @@ span {
   flex-grow: 1;
 }
 
-#album .tracks {
-  display: flex;
-}
+
 
 #album .tracks .track-num {
   flex-grow: 1;
 }
 */
+#album #tracks {
+  margin-bottom: 150px;
+}
 #album .tracks p {
   margin-bottom: 0;
 }
 #album .tracks .track-title {
   margin: 0;
   color: white;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #album .tracks .track-artist {
   margin: 0;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #album .nav-footer {
+  background: rgb(147, 147, 147);
+  background: linear-gradient(180deg, rgba(147, 147, 147, 0.639093137254902) 19%, rgba(18, 18, 18, 0.927608543417367) 67%);
   position: fixed;
   z-index: 1;
   overflow: hidden;
   width: 100%;
-  bottom: 30px;
+  bottom: 0;
+  color: white;
+}
+#album .div-nav-mob {
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+#album .nav-footer > div i {
+  font-size: 2rem;
 }
 #album .nav-footer p {
   margin-bottom: 0;

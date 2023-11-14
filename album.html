@@ -24,15 +24,15 @@
   <body id="album">
     <div class="main-content d-flex">
       <div class="nav-footer d-flex justify-content-around align-items-center d-md-none">
-        <div class="d-flex flex-column align-items-center justify-content-between">
+        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
           <i class="bi bi-house"></i>
           <p>Home</p>
         </div>
-        <div class="d-flex flex-column align-items-center justify-content-between">
+        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
           <i class="bi bi-search"></i>
           <p>Cerca</p>
         </div>
-        <div class="d-flex flex-column align-items-center justify-content-between">
+        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
           <i class="bi bi-collection"></i>
           <p>La tua libreria</p>
         </div>
@@ -40,13 +40,54 @@
       <div class="left-column d-none d-md-flex flex-column">
         <div class="menu d-flex flex-column">
           <span><i class="bi bi-three-dots"></i></span>
-          <span><i class="fas fa-home"></i> Menu</span><span><i class="fas fa-search"></i> Cerca</span
-          ><span class="mb-3"><i class="bi bi-collection"></i> La tua libreria</span
-          ><span><i class="fas fa-plus-square"></i> Crea playlist</span
-          ><span
+          <span
+            ><svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 iYxpxA home-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
+              ></path>
+            </svg>
+            Menu
+          </span>
+          <span>
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 iYxpxA search-icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
+              ></path>
+            </svg>
+            Cerca
+          </span>
+          <span class="mb-3"
+            ><svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              class="Svg-sc-ytk21e-0 iYxpxA library-icon"
+            >
+              <path
+                d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
+              ></path>
+            </svg>
+            La tua libreria</span
+          >
+          <span><i class="fas fa-plus-square"></i> Crea playlist</span>
+          <span
             ><img src="./assets/img/7e97f477e8f5202cca770cd994274ac1.png" style="width: 16px" alt="" /> Brani che ti
             piacciono</span
-          ><span class="mb-2"
+          >
+          <span class="mb-2"
             ><img src="./assets/img/Screenshot_2023-11-13_114740.png" style="width: 16px" alt="" /> I tuoi episodi</span
           >
         </div>
@@ -135,14 +176,16 @@
                 <p class="head-rip col-4">RIPRODUZIONI</p>
                 <i class="bi bi-clock head-clock col-2"></i>
               </div>
-              <div class="tracks row align-items-center">
-                <p class="track-num col-1">1</p>
-                <div class="list-title col-5">
-                  <p class="track-title">Montanelli - Intro</p>
-                  <p class="track-artist">Pinguini Tattici Nucleari</p>
-                </div>
-                <p class="track-views col-4">694.578</p>
-                <p class="track-lenght col-2">1:28</p>
+              <div id="tracks">
+                <!-- <div class="tracks row align-items-center mt-3">
+                  <p class="track-num col-1">1</p>
+                  <div class="list-title col-5">
+                    <p class="track-title">Montanelli - Intro</p>
+                    <p class="track-artist">Pinguini Tattici Nucleari</p>
+                  </div>
+                  <p class="track-views col-4">694.578</p>
+                  <p class="track-lenght col-2">1:28</p>
+                </div> -->
               </div>
             </div>
           </div>
