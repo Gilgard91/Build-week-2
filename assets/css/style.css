@@ -1,20 +1,12 @@
-@font-face {
-  font-family: "Circular Std";
-  src: url("./fonts/CircularStd-Black.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-family: "CircularStd-Black.otf", sans-serif;
-}
+
 
 body {
   color: rgb(173, 173, 173);
+  font-family:'Circular';
 }
 
 .left-column {
@@ -84,6 +76,10 @@ body {
   column-gap: 10px;
   align-items: center;
   font-size: 21px;
+}
+
+.activity-icons .bi-x{
+  font-size: 25px;
 }
 
 .activity h6{

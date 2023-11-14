@@ -4,7 +4,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "58a5ce792fmsh0b5d56955f36af1p12cc71jsne92575a89460",
+    "X-RapidAPI-Key": "633bef796fmshdbc2bfa48ac9ed9p1af420jsn04383590067a",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
