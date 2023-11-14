@@ -1,11 +1,10 @@
-html {
-  font-family: "Circular Std Black", sans-serif;
-}
-
+/* html {
+  font-family: "Circular";
+} */
 body {
-  color: rgb(173, 173, 173);
+  color: rgb(177, 175, 175);
+  font-family: "Circular";
 }
-
 .left-column {
   background-color: black;
   width: 350px;
@@ -14,7 +13,6 @@ body {
 }
 
 .center-column {
-  background-color: grey;
   flex-grow: 1;
 }
 
@@ -69,7 +67,6 @@ body {
 
 .activity-icons {
   column-gap: 10px;
-  align-items: center;
 }
 
 .user {
@@ -114,8 +111,11 @@ body {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
 }
+#album .first-block {
+  margin-top: 20px;
+}
 #album .album-img {
-  width: 200px;
+  width: 150px;
 }
 #album .img-div {
   overflow: hidden;
@@ -124,6 +124,7 @@ body {
   font-weight: 700;
   font-size: 50px;
   margin: 0;
+  white-space: nowrap;
   margin-bottom: 15px;
 }
 #album .info-div p,
@@ -135,7 +136,8 @@ span {
 #album .info-div {
   margin-left: 20px;
   color: white;
-  padding-top: 70px;
+  align-self: flex-end;
+  margin-top: 20px;
 }
 #album .artist-info {
   align-items: center;
@@ -146,9 +148,16 @@ span {
   border-radius: 30px;
   margin-right: 5px;
 }
+#album .artist-info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1wv;
+}
 
 #album .tot-min {
   color: rgba(214, 214, 214, 0.763);
+  white-space: nowrap;
 }
 
 #album .second-block {
@@ -160,7 +169,7 @@ span {
   display: flex;
   align-items: center;
   margin-bottom: 30px;
-  justify-content: start;
+  justify-content: space-between;
 }
 
 #album .icons i {
@@ -178,10 +187,11 @@ span {
 #album .play-button i {
   font-size: 2rem;
   color: black;
-  transform: translatey(-4px);
+  transform: translate(3px, 0px);
 }
 
-#album .tracklist {
+#album .list-title {
+  white-space: nowrap;
 }
 
 #album .head {
@@ -221,4 +231,15 @@ span {
 }
 #album .tracks .track-artist {
   margin: 0;
+}
+
+#album .nav-footer {
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  bottom: 30px;
+}
+#album .nav-footer p {
+  margin-bottom: 0;
 }
