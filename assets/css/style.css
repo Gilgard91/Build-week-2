@@ -340,6 +340,10 @@ svg path {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
 }
+#album .main-container {
+  background: rgb(254, 255, 0);
+  background: linear-gradient(180deg, rgba(254, 255, 0, 0.9051995798319328) 9%, rgba(18, 18, 18, 0.8743872549019608) 30%);
+}
 #album .first-block {
   margin-top: 20px;
 }
@@ -450,7 +454,7 @@ span {
 }
 */
 #album #tracks {
-  margin-bottom: 150px;
+  padding-bottom: 150px;
 }
 #album .tracks p {
   margin-bottom: 0;
