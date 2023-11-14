@@ -27,11 +27,13 @@ body {
 .center-column {
   background-color: #2e2e2e;
   flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .right-column {
   background-color: black;
-  width: 250px;
+  min-width: 250px;
 }
 
 .main-content {
@@ -127,6 +129,7 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .album-large-div img {
@@ -196,10 +199,56 @@ body {
 .album-medium-card {
   background-color: #1c1c1c;
   color: white;
-  height: 282px;
+  /* height: 282px; */
 }
 
 .card-img-top {
   padding: 10px;
   border-radius: 15px;
+}
+
+svg path {
+  fill: white;
+}
+
+.home-icon {
+  width: 22px;
+}
+
+.search-icon {
+  width: 22px;
+}
+
+.library-icon {
+  width: 22px;
+}
+
+.fa,
+.fas {
+  color: white;
+  font-size: 22px;
+}
+
+.arrows{
+  column-gap: 6px;
+    display: inline-flex;
+    width: 80px;
+}
+
+.previous, .next{
+  background-color: #1d1d1d;
+  border-radius: 100%;
+  padding: 9px;
+}
+
+.dropdown-toggle{
+  background-color: #1d1d1d;
+  border: none;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1350px) {
+  .right-column {
+    display: none !important;
+  }
 }

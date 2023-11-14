@@ -4,7 +4,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
+    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -35,7 +35,7 @@ const renderMainAlbum = async () => {
 
   albumLargeImg.src = album.cover_medium;
 //   albumLargeTitle.textContent = album.title;
-  albumLargeTitle.innerHTML = `<a href="./album.html?id=${album.id}">${album.title}</a>`
+  albumLargeTitle.innerHTML = `<a style="text-decoration:none;" href="./album.html?id=${album.id}">${album.title}</a>`
   albumLargeContributors.textContent =
     album.contributors.length > 1
       ? `${album.contributors[0].name}, ${album.contributors[1].name}`
@@ -52,11 +52,11 @@ const renderMainAlbum = async () => {
 
 const renderSmallAlbums = async () => {
   const album = await getRandomAlbum();
-  const albumHtml = `<div class="col-4">
+  const albumHtml = `<div class="col-md-6 col-lg-4">
       <div class="album-small-card card d-flex flex-row align-items-center">
         <img class="card-img" src="${album.cover_medium}" alt="" style="width: 100px" />
         <div class="card-body">
-          <p class="card-text">${album.title}</p>
+          <p class="card-text">${album.title.length > 35 ? album.title.substring(0,32) + "..." : album.title}</p>
         </div>
       </div>
     </div>`;
@@ -69,15 +69,15 @@ const renderSmallAlbums = async () => {
 
 const renderMediumAlbums = async () => {
   const album = await getRandomAlbum();
-  const albumHtml = `<div class="col">
-    <div class="album-medium-card card" style="max-width: 240px">
+  const albumHtml = `<div class="col-md-6 col-lg-3">
+    <div class="album-medium-card card" >
       <img
         class="card-img-top"
         src="${album.cover_medium}"
         alt="Card image cap"
       />
       <div class="card-body">
-        <p class="card-text">${album.title}</p>
+        <p class="card-text">${album.title.length > 26 ? album.title.substring(0,23) + "..." : album.title}</p>
       </div>
     </div>
   </div>`;
@@ -96,7 +96,7 @@ const renderAlbums = () => {
     // document.getElementById("row-1").appendChild(renderSmallAlbums());
   }
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 8; i++) {
     // document.getElementById("row-2").appendChild(renderMediumAlbums());
     renderMediumAlbums().then(data => document.getElementById("row-2").appendChild(data))
   }
