@@ -81,12 +81,10 @@
             I tuoi episodi</span
           >
         </div>
-        <div class="playlist">
-          <p>prova prova</p>
-        </div>
+        <div id="playlist" class="playlist"></div>
       </div>
       <div class="center-column d-flex flex-column">
-        <div class="container p-3">
+        <div class="controls-container container p-3">
           <div
             class="controls d-flex align-items-center justify-content-between"
           >
@@ -119,7 +117,13 @@
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              ><img src="./assets/img/Spotify_logo_without_text.svg.png" style="width:20px" alt=""> Spotify acc...
+              >
+                <img
+                  src="./assets/img/Spotify_logo_without_text.svg.png"
+                  style="width: 20px"
+                  alt=""
+                />
+                Spotify acc...
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -137,9 +141,7 @@
             <div class="album-large-content d-flex flex-column">
               <span>ALBUM</span>
               <div class="row">
-                <h1 class="col-xs-6" id="album-large-title">
-                  <a href="./album.html?id="></a>
-                </h1>
+                <h1 class="col-xs-6" id="album-large-title"></h1>
               </div>
               <span id="album-large-contributors">Fedez, Salmo</span>
               <span id="album-large-description"
@@ -150,8 +152,18 @@
               </div>
             </div>
           </div>
+          <div
+              class="mobile-header d-flex justify-content-between align-items-center d-none"
+            >
+              <h2 class="m-0">Buonasera</h2>
+              <div class="mobile-icons d-flex">
+                <i class="bi bi-bell"></i><i class="bi bi-clock-history"></i
+                ><i class="bi bi-gear"></i>
+              </div>
+            </div>
           <div class="album-small-div d-flex flex-column">
             <h2>Buonasera</h2>
+            
             <div id="row-1" class="row g-3">
               <!-- <div class="col-4">
                 <div
@@ -271,54 +283,7 @@
                     <p class="card-text">Titolo di album di prova</p>
                   </div>
                 </div>
-              </div>
-              <div class="col">
-                <div class="album-medium-card card" style="max-width: 240px">
-                  <img
-                    class="card-img-top"
-                    src="./assets/img/search/image-11.jpg"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <p class="card-text">Titolo di album di prova</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="album-medium-card card" style="max-width: 240px">
-                  <img
-                    class="card-img-top"
-                    src="./assets/img/search/image-11.jpg"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <p class="card-text">Titolo di album di prova</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="album-medium-card card" style="max-width: 240px">
-                  <img
-                    class="card-img-top"
-                    src="./assets/img/search/image-11.jpg"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <p class="card-text">Titolo di album di prova</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="album-medium-card card" style="max-width: 240px">
-                  <img
-                    class="card-img-top"
-                    src="./assets/img/search/image-11.jpg"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <p class="card-text">Titolo di album di prova</p>
-                  </div>
-                </div>
+              
               </div> -->
             </div>
           </div>
@@ -326,10 +291,12 @@
       </div>
       <div class="right-column d-flex flex-column">
         <div class="friends-div">
-          <div class="activity d-flex justify-content-between">
+          <div
+            class="activity d-flex justify-content-between align-items-center"
+          >
             <h6 class="m-0">Attività amici</h6>
             <div class="activity-icons d-flex">
-              <i class="fas fa-user-plus"></i><i class="fas fa-times"></i>
+              <i class="bi bi-person-plus"></i><i class="bi bi-x"></i>
             </div>
           </div>
           <div class="user">

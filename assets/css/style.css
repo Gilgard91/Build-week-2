@@ -83,6 +83,16 @@ body {
 .activity-icons {
   column-gap: 10px;
   align-items: center;
+  font-size: 21px;
+}
+
+.activity h6{
+  font-size: 1.2rem;
+}
+
+.bi-three-dots{
+  color: white;
+  font-size: 22px;
 }
 
 .user {
@@ -178,6 +188,12 @@ body {
   color: white;
 }
 
+.album-small-card p{
+  /* font-size: 1.2rem; */
+  
+}
+
+
 .album-medium-div {
   color: white;
 }
@@ -199,7 +215,13 @@ body {
 .album-medium-card {
   background-color: #1c1c1c;
   color: white;
+  border-radius: 20px;
   /* height: 282px; */
+}
+
+.album-medium-card .card-text{
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .card-img-top {
@@ -247,8 +269,80 @@ svg path {
   border-radius: 20px;
 }
 
+.mobile-header{
+  color: white;
+  margin-bottom: 18px;
+}
+
+.mobile-header h2{
+  font-size: 2.3rem;
+ 
+}
+
+.mobile-icons{
+    font-size: 35px;
+    column-gap: 30px;
+}
+
 @media screen and (max-width: 1350px) {
   .right-column {
     display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .left-column{
+    display: none !important;
+  }
+  .album-large-div{
+    display: none !important;
+  }
+
+  .controls-container{
+    display: none !important;
+  }
+
+  .album-medium-div-title{
+    display: none !important;
+  }
+
+  .album-small-div h2{
+    font-size: 2.3rem;
+   
+    display: none;
+  }
+
+  .mobile-header{
+    display:flex !important;
+    
+  }
+
+  .album-small-card{
+    background-color: #222222;
+  }
+
+ 
+  .album-medium-card{
+    display:flex;
+    flex-direction: row;
+    padding: 20px;
+    background-color: #404040;
+  }
+  
+  .album-medium-card img{
+    box-shadow: 0px 0px 20px 0px #888888;
+  }
+
+  .album-medium-card .card-text{
+    font-size: 1.5rem;
+    margin-left: 15px;
+  }
+
+  .medium-temp-div{
+    display: flex;
+  }
+
+  .medium-temp-div img{
+    width: 250px;
   }
 }
