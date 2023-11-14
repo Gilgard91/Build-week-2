@@ -25,7 +25,7 @@
   </head>
   <body>
     <div class="main-content d-flex">
-      <div class="left-column d-flex flex-column">
+      <div class="left-column d-none d-xl-flex flex-column">
         <div class="menu d-flex flex-column">
           <span><i class="bi bi-three-dots"></i></span>
           <span><i class="fas fa-home"></i> Menu</span
@@ -88,20 +88,24 @@
         </div>
       </div>
       <div id="artist-column" class="center-column d-flex flex-column">
-        <div
-          class="controls p-2 d-flex align-items-center justify-content-between"
+        <nav id="navbar-md" class="d-block d-xl-none">
+          <a href="#"><i class="bi bi-arrow-left"></i> </a>
+        </nav>
+        <nav
+          id="navbar-xl"
+          class="controls p-2 d-none d-xl-flex justify-content-between"
         >
           <div class="arrows">
             <i class="fas fa-less-than"></i><i class="fas fa-greater-than"></i>
           </div>
           <div class="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              class="btn bg-black text-white dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown button
+              <span>Dropdown button</span>
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Action</a></li>
@@ -109,7 +113,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </div>
-        </div>
+        </nav>
         <div id="image-div">
           <div id="title-div">
             <span
@@ -124,65 +128,131 @@
         </div>
 
         <div class="main-part">
-          <div id="top-section">
-            <button class="play-button" type="button">
-              <i class="bi bi-play-fill"></i>
-            </button>
-            <button class="following-button">FOLLOWING</button>
-            <i class="bi bi-three-dots"></i>
-          </div>
-          <div class="popular-songs">
-            <h3>Popolari:</h3>
-            <div class="song">
-              <div>
-                <span>1</span>
-                <img src="./assets/img/profile-pic.jpg" alt="" /><span
-                  >Ocean Avenue
+          <div class="liked-songs d-block d-xl-none align-items-center">
+            <div class="d-flex flex-row gap-2 mb-2">
+              <div class="position-relative">
+                <img
+                  src="https://i.scdn.co/image/ab6761610000e5eb952381a70ceeda02554ad545"
+                  alt=""
+                />
+                <span class="position-absolute translate-middle rounded-circle">
+                  <i class="bi bi-heart-fill"></i>
                 </span>
               </div>
-              <span>1.000.000</span><span>3:18</span>
-            </div>
-            <div class="song">
-              <div>
-                <span>1</span>
-                <img src="./assets/img/profile-pic.jpg" alt="" /><span
-                  >Ocean Avenue
-                </span>
+              <div class="d-flex flex-column justify-content-center gap-1">
+                <h5>Brani che ti piacciono:</h5>
+                <span>8 brani che ti piacciono di Yellowcard</span>
               </div>
-              <span>1.000.000</span>
-              <span>3:18</span>
-            </div>
-            <div class="song">
-              <div>
-                <span>1</span>
-                <img src="./assets/img/profile-pic.jpg" alt="" /><span
-                  >Ocean Avenue
-                </span>
-              </div>
-              <span>1.000.000</span><span>3:18</span>
-            </div>
-            <div class="song">
-              <div>
-                <span>1</span>
-                <img src="./assets/img/profile-pic.jpg" alt="" /><span
-                  >Ocean Avenue
-                </span>
-              </div>
-              <span>1.000.000</span><span>3:18</span>
-            </div>
-            <div class="song">
-              <div>
-                <span>1</span>
-                <img src="./assets/img/profile-pic.jpg" alt="" /><span
-                  >Ocean Avenue
-                </span>
-              </div>
-              <span>1.000.000</span><span>3:18</span>
             </div>
           </div>
+          <div id="top-section" class="d-flex flex-row justify-content-between">
+            <div class="d-flex d-xl-none">
+              <button class="following-button flex-grow-0">FOLLOWING</button>
+              <i class="bi bi-three-dots-vertical"></i>
+            </div>
+            <div
+              class="d-none d-xl-flex align-items-start align-items-center gap-3"
+            >
+              <button class="play-button" type="button">
+                <i class="bi bi-play-fill"></i>
+              </button>
+              <button class="following-button flex-grow-0">FOLLOWING</button>
+              <i class="bi bi-three-dots"></i>
+            </div>
+            <div
+              class="d-flex d-xl-none align-items-start align-items-center gap-3"
+            >
+              <i class="bi bi-shuffle"></i>
+              <button class="play-button" type="button">
+                <i class="bi bi-play-fill"></i>
+              </button>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="popular-songs">
+              <h3>Popolari:</h3>
+              <!-- <div class="song mt-2 align-items-center">
+                <div class="align-items-center">
+                  <span>1</span>
+                  <img src="./assets/img/profile-pic.jpg" alt="" /><span
+                    >Ocean Avenue
+                  </span>
+                </div>
+                <span>1.000.000</span><span>3:18</span>
+              </div>
+              <div class="song mt-2 align-items-center">
+                <div class="align-items-center">
+                  <span>1</span>
+                  <img src="./assets/img/profile-pic.jpg" alt="" /><span
+                    >Ocean Avenue
+                  </span>
+                </div>
+                <span>1.000.000</span>
+                <span>3:18</span>
+              </div>
+              <div class="song mt-2 align-items-center">
+                <div class="align-items-center">
+                  <span>1</span>
+                  <img src="./assets/img/profile-pic.jpg" alt="" /><span
+                    >Ocean Avenue
+                  </span>
+                </div>
+                <span>1.000.000</span><span>3:18</span>
+              </div>
+              <div class="song mt-2 align-items-center">
+                <div class="align-items-center">
+                  <span>1</span>
+                  <img src="./assets/img/profile-pic.jpg" alt="" /><span
+                    >Ocean Avenue
+                  </span>
+                </div>
+                <span>1.000.000</span><span>3:18</span>
+              </div>
+              <div class="song mt-2 align-items-center">
+                <div class="align-items-center">
+                  <span>1</span>
+                  <img src="./assets/img/profile-pic.jpg" alt="" /><span
+                    >Ocean Avenue
+                  </span>
+                </div>
+                <span>1.000.000</span><span>3:18</span>
+              </div> -->
+              <!-- <a type="button" class="visualize-other btn btn-link"
+                >VISUALIZZA ALTRO</a
+              > -->
+            </div>
+            <div
+              class="liked-songs d-none d-xl-block liked-songs align-items-center"
+            >
+              <h3>Brani che ti piacciono:</h3>
+              <div class="d-flex flex-row gap-2">
+                <div class="position-relative">
+                  <img
+                    src="https://i.scdn.co/image/ab6761610000e5eb952381a70ceeda02554ad545"
+                    alt=""
+                  />
+                  <span
+                    class="position-absolute translate-middle rounded-circle"
+                  >
+                    <i class="bi bi-heart-fill"></i>
+                  </span>
+                </div>
+                <div class="d-flex flex-column justify-content-center">
+                  <h5 class="mb-0">Hai messo Mi piace a 11 brani</h5>
+                  <span>Di Yellowcard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis aut,
+            et veniam neque voluptatibus, eveniet delectus laborum quasi
+            necessitatibus, magnam nulla magni minus. Necessitatibus laborum,
+            dolorem illo maxime harum ipsam?
+          </p>
         </div>
       </div>
-      <div class="right-column d-flex flex-column">
+      <div class="right-column d-none d-xl-flex flex-column flex-column">
         <div class="friends-div">
           <div class="activity d-flex justify-content-between">
             <h6 class="m-0">Attività amici</h6>
@@ -237,5 +307,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="./artist.js"></script>
   </body>
 </html>

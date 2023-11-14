@@ -108,13 +108,44 @@ body {
 .user-title {
   column-gap: 30px;
 }
+
+#navbar-xl .dropdown button {
+  font-size: 12px;
+  padding: 2px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
 #artist-column {
   background-color: #1d1d1d;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  color: white;
+}
+#navbar-xl {
+  background-color: transparent;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+#navbar-md {
+  background-color: transparent;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  font-size: 33px;
+  padding-left: 2rem;
+  padding-top: 1.2rem;
+}
+
+#navbar-md a {
+  color: white;
 }
 #artist-column #image-div {
   width: 100%;
   position: relative;
-  background-image: url("https://bautts.files.wordpress.com/2015/07/yellowcard-e1468266598440.jpg");
   min-height: calc(100vh - 55%);
   background-size: cover;
 }
@@ -149,7 +180,7 @@ body {
   border-radius: 50%;
 }
 
-.play-button i::before {
+#artist-column .play-button i {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -157,6 +188,7 @@ body {
   font-size: 25px;
   height: 100%;
   width: 100%;
+  transform: translateX(2px);
 }
 #artist-column .main-part {
   padding: 1rem;
@@ -175,12 +207,26 @@ body {
   align-items: center;
   gap: 1.3rem;
 }
-#artist-column .popular-songs {
+
+#artist-column .main-part > div:nth-of-type(3) {
+  gap: 4rem;
+  margin-top: 1rem;
+}
+#artist-column .main-part > div:nth-of-type(3) h3 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+#artist-column .popular-songs .visualize-other {
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
 }
 #artist-column .popular-songs .song {
   display: flex;
   flex-direction: row;
-  gap: 2.5rem;
+  gap: 5rem;
+  font-size: 13px;
 }
 #artist-column .song img {
   width: 2.2rem;
@@ -188,5 +234,52 @@ body {
 
 #artist-column .song > div {
   display: flex;
-  gap: 0.5rem;
+  gap: 10px;
+}
+#artist-column .song > div:first-child span:first-of-type {
+  width: 17px;
+  text-align: right;
+}
+
+#artist-column .song > div span:last-of-type {
+  font-weight: bold;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#artist-column .liked-songs img {
+  width: 60px;
+  border-radius: 50%;
+}
+#artist-column .liked-songs div > div:nth-of-type(1) span {
+  bottom: -8px;
+  right: -7px;
+  background-color: #1fdf64;
+  padding: 3px;
+  font-size: 9px;
+  color: white;
+}
+#artist-column .liked-songs div:nth-of-type(2) > div {
+  gap: 8px;
+}
+#artist-column .liked-songs div:nth-of-type(2) {
+  gap: 8px;
+}
+#artist-column .liked-songs div > span {
+  font-size: 9px;
+}
+
+#artist-column .liked-songs div > h5 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  #artist-column #image-div {
+    min-height: calc(100vh - 65%);
+    background-size: cover;
+  }
+  #artist-column #title-div h1 {
+    font-size: 2rem;
+  }
 }
