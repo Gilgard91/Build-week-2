@@ -348,10 +348,11 @@ svg path {
   margin-top: 20px;
 }
 #album .album-img {
-  width: 150px;
+  max-width: 300px;
 }
 #album .img-div {
   overflow: hidden;
+  box-shadow: -2px 2px 77px 21px rgba(0, 0, 0, 0.75);
 }
 #album h1 {
   font-weight: 700;
@@ -489,8 +490,8 @@ span {
   margin-bottom: 30px;
   padding-top: 20px;
 }
-#album .nav-footer > div i {
-  font-size: 2rem;
+#album .nav-footer > div svg {
+  width: 2em;
 }
 #album .nav-footer p {
   margin-bottom: 0;
