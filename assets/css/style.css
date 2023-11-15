@@ -1,9 +1,6 @@
-html {
-  font-family: "Circular Std Black", sans-serif;
-}
-
 body {
   color: rgb(173, 173, 173);
+  font-family: "Circular";
 }
 
 .left-column {
@@ -122,6 +119,7 @@ body {
   position: relative;
   min-height: calc(100vh - 55%);
   background-size: cover;
+  background-position: center;
 }
 
 #artist-column #title-div {
@@ -247,6 +245,14 @@ body {
 #artist-column .liked-songs div > h5 {
   font-size: 12px;
   margin-bottom: 0;
+}
+#search-column .box-genre {
+  display: flex;
+  flex-direction: row;
+  height: 160px;
+}
+#search-column #container-genres {
+  justify-content: center;
 }
 @media screen and (max-width: 767px) {
   #artist-column #image-div {
