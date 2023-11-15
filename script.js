@@ -4,7 +4,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "eae5630ea0mshf3a32107d506899p1f0c5fjsn983f002173c2",
+    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -91,7 +91,32 @@ const renderMediumAlbums = async () => {
         }</p>
       </div>
       </div>
-      
+      <div class="album-medium-mobile-icons align-items-center justify-content-between"
+                  >
+                    <div class="d-flex align-items-center gap-4">
+                      <img
+                        src="./assets/img/heart.png"
+                        style="width: 40px"
+                        alt=""
+                      />
+                      <i
+                        class="bi bi-three-dots-vertical"
+                        style="font-size: 40px; color: #b2b2b2"
+                      ></i>
+                    </div>
+                    <div>
+                      <i
+                        class="fas fa-play"
+                        style="
+                          font-size: 24px;
+                          color: #f5f5f5;
+                          background-color: rgb(36 36 36);
+                          padding: 16px;
+                          border-radius: 100%;
+                        "
+                      ></i>
+                    </div>
+                  </div>
     </div>
   </div>`;
 
@@ -114,7 +139,7 @@ const renderTitles = async () => {
 const renderAlbums = () => {
   renderMainAlbum();
 
-  for (let z = 0; z < 5; z++) {
+  for (let z = 0; z < 1; z++) {
     renderTitles().then((data) =>
       document.getElementById("playlist").appendChild(data)
     );

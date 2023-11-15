@@ -98,7 +98,7 @@ body {
 }
 
 .bi-three-dots {
-  color: white;
+  color: #f5f5f5;
   font-size: 22px;
 }
 
@@ -193,7 +193,7 @@ body {
 
 .album-large-content-buttons button:nth-child(2) {
   background-color: black;
-  color: white;
+  color: #f5f5f5;
   border: 1px solid white;
 }
 
@@ -270,7 +270,7 @@ body {
 }
 
 svg path {
-  fill: white;
+  fill: #f5f5f5;
 }
 
 .home-icon {
@@ -287,7 +287,7 @@ svg path {
 
 .fa,
 .fas {
-  color: white;
+  color: #f5f5f5;
   font-size: 22px;
 }
 
@@ -311,7 +311,7 @@ svg path {
 }
 
 .mobile-header {
-  color: white;
+  color: #f5f5f5;
   margin-bottom: 18px;
 }
 
@@ -329,21 +329,25 @@ svg path {
   max-height: 67px;
 }
 
+.album-medium-mobile-icons {
+  display: none;
+}
+
 /* FOOTER NAV */
 
 .nav-footer {
   background: rgb(147, 147, 147);
   background: linear-gradient(
     180deg,
-    rgba(147, 147, 147, 0.639093137254902) 19%,
-    rgba(18, 18, 18, 0.927608543417367) 67%
+    rgb(23 23 23 / 64%) 19%,
+    rgb(0 0 0 / 93%) 67%
   );
   position: fixed;
   z-index: 1;
   overflow: hidden;
   width: 100%;
   bottom: 0;
-  color: white;
+  color: #f5f5f5;
 }
 .div-nav-mob {
   margin-bottom: 30px;
@@ -728,8 +732,8 @@ svg path {
     background-color: #323232;
   }
 
-  .album-medium-card img {
-    box-shadow: 0px 0px 20px 0px #888888;
+  .album-medium-mobile-icons {
+    display: flex;
   }
 
   .album-medium-card .card-text {
@@ -739,10 +743,14 @@ svg path {
 
   .medium-temp-div {
     display: flex;
+    margin-bottom: 20px;
   }
 
-  .medium-temp-div img {
+  .medium-temp-div .card-img-top {
     width: 250px;
+    box-shadow: 0px 0px 20px 3px #888888;
+    padding: 0;
+    border-radius: 3px;
   }
 
   .medium-temp-div .card-body {
