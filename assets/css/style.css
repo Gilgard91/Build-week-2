@@ -552,7 +552,6 @@ svg path {
 #artist-column #image-div {
   width: 100%;
   position: relative;
-  min-height: calc(100vh - 55%);
   background-size: cover;
 }
 
@@ -622,6 +621,9 @@ svg path {
   font-size: 18px;
   margin-bottom: 1rem;
   font-weight: bold;
+}
+#artist-column #image-div {
+  min-height: 45vh;
 }
 #artist-column .popular-songs .visualize-other {
   font-size: 12px;
@@ -750,16 +752,13 @@ svg path {
   .medium-temp-div .card-body {
     overflow: visible;
   }
+}
 
+@media screen and (max-width: 768px) {
   #artist-column #image-div {
-    min-height: calc(100vh - 65%);
-    background-size: cover;
+    min-height: 35vh;
   }
-  #artist-column #title-div h1 {
+  #artist-column #image-div h1 {
     font-size: 2rem;
-  }
-
-  #artist-column .song > div span:last-of-type {
-    width: 400px;
   }
 }
