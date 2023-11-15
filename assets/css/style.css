@@ -386,9 +386,12 @@ span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 1wv;
 }
-
+#album h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 #album .tot-min {
   color: rgba(214, 214, 214, 0.763);
   white-space: nowrap;
