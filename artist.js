@@ -1,8 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
-const idProvvisorio = 413;
+const idProvvisorio = 1000;
 const urlArtista =
-  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
+  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idProvvisorio;
 
 const min = 90471;
 const max = 150000;
@@ -10,14 +10,14 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "eae5630ea0mshf3a32107d506899p1f0c5fjsn983f002173c2",
+    "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 window.addEventListener("DOMContentLoaded", () => {
   fetch(urlArtista, {
     headers: {
-      "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
+      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
       "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
     }
   })
@@ -48,7 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
         span.innerText = artistObj.name;
       });
       Array.from(ImglikedSongsDiv).forEach((img) => {
-        img.setAttribute("src", artistObj.picture_xl);
+        img.setAttribute("src", artistObj.picture_big);
       });
       const tracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${idProvvisorio}/top?limit=10`;
       fetch(tracklist, {})
@@ -76,6 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         .catch((error) => {
           console.log("CATCH BLOCK", error);
         });
+      creationSectionAlbums();
     })
     .catch((error) => {
       console.log("CATCH BLOCK", error);
@@ -87,7 +88,8 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
   for (let i = from; i < to; i++) {
     if (songsObj.data.length > i) {
       const songDiv = document.createElement("div");
-      songDiv.className = "song mt-2 align-items-center";
+      songDiv.className =
+        "song mt-2 align-items-center justify-content-between";
       divPopularSongs.appendChild(songDiv);
       const genericDiv = document.createElement("div");
       genericDiv.className = "align-items-center";
@@ -138,4 +140,65 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
       });
     });
   }
+};
+
+const creationSectionAlbums = () => {
+  const min = 90471;
+  const max = 150000;
+
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+  };
+
+  const getRandomAlbum = async () => {
+    let random = Math.round(Math.random() * (max - min) + min);
+    let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+
+    const getAlbum = await fetch(urlRandomAlbum, options);
+    const result = await getAlbum.json();
+    if (result !== undefined && result.id) {
+      return result;
+    }
+    return getRandomAlbum();
+  };
+  const renderMediumAlbums = async () => {
+    const album = await getRandomAlbum();
+    const albumHtml = `<div class="col-md-6 col-lg-3">
+        <div class="album-medium-card card d-flex flex-column" >
+        <div class="medium-temp-div ">
+        <img
+            class="card-img-top"
+            src="${album.cover_medium}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <p class="card-text">${
+              album.title.length > 26
+                ? album.title.substring(0, 23) + "..."
+                : album.title
+            }</p>
+          </div>
+          </div>
+
+        </div>
+      </div>`;
+
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = albumHtml;
+
+    return tempDiv.firstElementChild;
+  };
+  const renderAlbums = () => {
+    for (let i = 0; i < 8; i++) {
+      renderMediumAlbums().then((data) =>
+        document.getElementById("row-2").appendChild(data)
+      );
+    }
+  };
+
+  renderAlbums();
 };
