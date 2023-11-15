@@ -22,11 +22,7 @@ body {
 
 .center-column {
   /* background-color: #1a1a1a; */
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(41, 41, 41, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(41, 41, 41, 1) 100%);
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -141,12 +137,7 @@ body {
 
 .album-large-div {
   /* background: linear-gradient(9deg, rgba(0, 0, 0, 1) 51%, rgb(69, 69, 69) 100%); */
-  background: linear-gradient(
-    7deg,
-    rgba(0, 0, 0, 1) 38%,
-    rgba(0, 0, 0, 1) 43%,
-    rgba(52, 52, 52, 1) 94%
-  );
+  background: linear-gradient(7deg, rgba(0, 0, 0, 1) 38%, rgba(0, 0, 0, 1) 43%, rgba(52, 52, 52, 1) 94%);
   column-gap: 20px;
   color: #f5f5f5;
   font-weight: bold;
@@ -333,11 +324,7 @@ svg path {
 
 .nav-footer {
   background: rgb(147, 147, 147);
-  background: linear-gradient(
-    180deg,
-    rgba(147, 147, 147, 0.639093137254902) 19%,
-    rgba(18, 18, 18, 0.927608543417367) 67%
-  );
+  background: linear-gradient(180deg, rgba(147, 147, 147, 0.639093137254902) 19%, rgba(18, 18, 18, 0.927608543417367) 67%);
   position: fixed;
   z-index: 1;
   overflow: hidden;
@@ -361,11 +348,7 @@ svg path {
 #album {
   height: 100vh;
   background: rgb(209, 181, 74);
-  background: linear-gradient(
-    180deg,
-    rgba(209, 181, 74, 1) 20%,
-    rgba(18, 18, 18, 1) 40%
-  );
+  background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
 }
 /* #album .main-container {
   background: rgb(254, 255, 0);
@@ -380,25 +363,36 @@ svg path {
 }
 #album .album-img {
   max-width: 300px;
-}
-#album .img-div {
-  overflow: hidden;
   box-shadow: -2px 2px 77px 21px rgba(0, 0, 0, 0.75);
 }
+#album .div-album-img {
+  justify-content: center;
+}
+/* #album .img-div {
+  flex-shrink: 2;
+  overflow: hidden;
+  box-shadow: -2px 2px 77px 21px rgba(0, 0, 0, 0.75);
+} */
 #album h1 {
   font-weight: 700;
   font-size: 50px;
   margin: 0;
   white-space: nowrap;
   margin-bottom: 15px;
+
+  text-overflow: ellipsis;
 }
+#album .info-div a,
 #album .info-div p,
 #album .info-div span {
   margin: 0;
   font-size: 10px;
   font-weight: 700;
 }
-
+#album .info-div a {
+  text-decoration: none;
+  color: white;
+}
 #album .info-div {
   margin-left: 20px;
   color: white;
