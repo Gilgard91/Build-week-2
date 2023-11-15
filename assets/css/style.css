@@ -554,7 +554,7 @@ svg path {
 #artist-column #image-div {
   width: 100%;
   position: relative;
-  min-height: calc(100vh - 55%);
+  min-height: calc(100vh - 65%);
   background-size: cover;
 }
 
@@ -750,7 +750,7 @@ svg path {
   }
 
   #artist-column #image-div {
-    min-height: calc(100vh - 65%);
+    min-height: calc(100vh - 75%);
     background-size: cover;
   }
   #artist-column #title-div h1 {
