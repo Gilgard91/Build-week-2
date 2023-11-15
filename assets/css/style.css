@@ -283,3 +283,9 @@ body {
     font-size: 2rem;
   }
 }
+
+@media screen and (min-width: 767px) and (max-width: 1999px) {
+  #artist-column .song > div span:last-of-type {
+    width: 400px;
+  }
+}
