@@ -14,9 +14,13 @@ const options = {
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
-
 window.addEventListener("DOMContentLoaded", () => {
-  fetch(urlArtista, options)
+  fetch(urlArtista, {
+    headers: {
+      "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
+      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+    }
+  })
     .then((res) => {
       if (res) {
         return res.json();
@@ -24,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .then((artistObj) => {
       const divImage = document.querySelector("#artist-column #image-div");
-      divImage.style.backgroundImage = `url(${artistObj.picture_xl})`;
+      divImage.style.backgroundImage = `url(${artistObj.picture_big})`;
       const title = document.getElementsByTagName("h1")[0];
       const listenersSpan = document.querySelector(
         "#artist-column #image-div span:last-of-type"
@@ -36,10 +40,17 @@ window.addEventListener("DOMContentLoaded", () => {
       const ImglikedSongsDiv = document.querySelectorAll(
         "#artist-column .liked-songs img"
       );
+      const ImglikedSongsSpan = document.querySelectorAll(
+        "#artist-column .liked-songs span>span"
+      );
+
+      Array.from(ImglikedSongsSpan).forEach((span) => {
+        span.innerText = artistObj.name;
+      });
       Array.from(ImglikedSongsDiv).forEach((img) => {
         img.setAttribute("src", artistObj.picture_xl);
       });
-      const tracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=10`;
+      const tracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${idProvvisorio}/top?limit=10`;
       fetch(tracklist, {})
         .then((res) => {
           if (res) {
@@ -51,13 +62,16 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementsByClassName("popular-songs")[0];
           console.log(songsObj);
           creationPopularSongs(divPopularSongs, songsObj, 0, 5);
-          const visualizeOtherButton = document.createElement("a");
-          visualizeOtherButton.innerText = "VISUALIZZA ALTRO";
-          visualizeOtherButton.className = "visualize-other btn btn-link mt-2";
-          divPopularSongs.appendChild(visualizeOtherButton);
-          visualizeOtherButton.addEventListener("click", () => {
-            creationPopularSongs(divPopularSongs, songsObj, 5, 10);
-          });
+          if (songsObj.data.length > 5) {
+            const visualizeOtherButton = document.createElement("a");
+            visualizeOtherButton.innerText = "VISUALIZZA ALTRO";
+            visualizeOtherButton.className =
+              "visualize-other btn btn-link mt-2";
+            divPopularSongs.appendChild(visualizeOtherButton);
+            visualizeOtherButton.addEventListener("click", () => {
+              creationPopularSongs(divPopularSongs, songsObj, 5, 10);
+            });
+          }
         })
         .catch((error) => {
           console.log("CATCH BLOCK", error);
@@ -66,60 +80,40 @@ window.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.log("CATCH BLOCK", error);
     });
-
-  for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
-  }
 });
 
-const getRandomAlbum = async () => {
-  let random = Math.round(Math.random() * (max - min) + min);
-  let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
-
-  const getAlbum = await fetch(urlRandomAlbum, options);
-  const result = await getAlbum.json();
-  if (result !== undefined && result.id) {
-    return result;
-  }
-  return getRandomAlbum();
-};
-
-const renderTitles = async () => {
-  const album = await getRandomAlbum();
-  const playlistHTML = `<p>${album.title}</p>`;
-
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = playlistHTML;
-
-  return tempDiv.firstElementChild;
-};
-
 const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
+  console.log(songsObj.data.length);
   for (let i = from; i < to; i++) {
-    const songDiv = document.createElement("div");
-    songDiv.className = "song mt-2 align-items-center";
-    divPopularSongs.appendChild(songDiv);
-    const genericDiv = document.createElement("div");
-    genericDiv.className = "align-items-center";
-    songDiv.appendChild(genericDiv);
-    const numbSpan = document.createElement("span");
-    genericDiv.appendChild(numbSpan);
-    numbSpan.innerText = i + 1;
-    const imgSong = document.createElement("img");
-    genericDiv.appendChild(imgSong);
-    imgSong.setAttribute("src", songsObj.data[i].album.cover);
-    const nameSongSpan = document.createElement("span");
-    nameSongSpan.innerText = songsObj.data[i].title;
-    genericDiv.appendChild(nameSongSpan);
-    const visualSpan = document.createElement("span");
-    visualSpan.innerText = songsObj.data[i].rank;
-    songDiv.appendChild(visualSpan);
-    const durationSpan = document.createElement("span");
-    durationSpan.innerText = songsObj.data[i].duration;
-    songDiv.appendChild(durationSpan);
+    if (songsObj.data.length > i) {
+      const songDiv = document.createElement("div");
+      songDiv.className = "song mt-2 align-items-center";
+      divPopularSongs.appendChild(songDiv);
+      const genericDiv = document.createElement("div");
+      genericDiv.className = "align-items-center";
+      songDiv.appendChild(genericDiv);
+      const numbSpan = document.createElement("span");
+      genericDiv.appendChild(numbSpan);
+      numbSpan.innerText = i + 1;
+      const imgSong = document.createElement("img");
+      genericDiv.appendChild(imgSong);
+      imgSong.setAttribute("src", songsObj.data[i].album.cover);
+      const nameSongSpan = document.createElement("span");
+      nameSongSpan.innerText = songsObj.data[i].title;
+      genericDiv.appendChild(nameSongSpan);
+      const visualSpan = document.createElement("span");
+      let germanformatter = new Intl.NumberFormat("de-DE");
+      visualSpan.innerText = germanformatter.format(songsObj.data[i].rank);
+      songDiv.appendChild(visualSpan);
+      const durationSpan = document.createElement("span");
+      const durationMMSS = new Date(songsObj.data[i].duration * 1000)
+        .toISOString()
+        .slice(14, 19);
+      durationSpan.innerText = durationMMSS;
+      songDiv.appendChild(durationSpan);
+    }
   }
+
   if (from === 5) {
     const visualizeOtherButton =
       document.getElementsByClassName("visualize-other")[0];
