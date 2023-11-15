@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/100123";
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/129823";
 let trackCounter = 0;
 
 const min = 90471;
