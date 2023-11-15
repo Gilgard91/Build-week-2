@@ -1,16 +1,15 @@
 const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
 const idProvvisorio = 413;
-const urlArtista =
-  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
-
+const urlArtista = "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
+console.log(urlArtista);
 const min = 90471;
 const max = 150000;
 
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "eae5630ea0mshf3a32107d506899p1f0c5fjsn983f002173c2",
+    "X-RapidAPI-Key": "2040a53eabmshd42238176446ab0p103fbcjsn8053e71ed3c9",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -26,16 +25,11 @@ window.addEventListener("DOMContentLoaded", () => {
       const divImage = document.querySelector("#artist-column #image-div");
       divImage.style.backgroundImage = `url(${artistObj.picture_xl})`;
       const title = document.getElementsByTagName("h1")[0];
-      const listenersSpan = document.querySelector(
-        "#artist-column #image-div span:last-of-type"
-      );
+      const listenersSpan = document.querySelector("#artist-column #image-div span:last-of-type");
       let germanformatter = new Intl.NumberFormat("de-DE");
-      listenersSpan.innerText =
-        germanformatter.format(artistObj.nb_fan) + " ascolti mensili";
+      listenersSpan.innerText = germanformatter.format(artistObj.nb_fan) + " ascolti mensili";
       title.innerText = artistObj.name;
-      const ImglikedSongsDiv = document.querySelectorAll(
-        "#artist-column .liked-songs img"
-      );
+      const ImglikedSongsDiv = document.querySelectorAll("#artist-column .liked-songs img");
       Array.from(ImglikedSongsDiv).forEach((img) => {
         img.setAttribute("src", artistObj.picture_xl);
       });
@@ -47,8 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
           } else throw new Error("Generic Fetching error");
         })
         .then((songsObj) => {
-          const divPopularSongs =
-            document.getElementsByClassName("popular-songs")[0];
+          const divPopularSongs = document.getElementsByClassName("popular-songs")[0];
           console.log(songsObj);
           creationPopularSongs(divPopularSongs, songsObj, 0, 5);
           const visualizeOtherButton = document.createElement("a");
@@ -68,9 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
   for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
+    renderTitles().then((data) => document.getElementById("playlist").appendChild(data));
   }
 });
 
@@ -121,8 +112,7 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
     songDiv.appendChild(durationSpan);
   }
   if (from === 5) {
-    const visualizeOtherButton =
-      document.getElementsByClassName("visualize-other")[0];
+    const visualizeOtherButton = document.getElementsByClassName("visualize-other")[0];
     visualizeOtherButton.remove();
     const visualizeLessButton = document.createElement("a");
     visualizeLessButton.innerText = "VISUALIZZA MENO";

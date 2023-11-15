@@ -26,12 +26,8 @@ const renderMainAlbum = async () => {
   console.log(album);
   const albumLargeImg = document.getElementById("album-large-img");
   const albumLargeTitle = document.getElementById("album-large-title");
-  const albumLargeContributors = document.getElementById(
-    "album-large-contributors"
-  );
-  const albumLargeDescription = document.getElementById(
-    "album-large-description"
-  );
+  const albumLargeContributors = document.getElementById("album-large-contributors");
+  const albumLargeDescription = document.getElementById("album-large-description");
 
   albumLargeImg.src = album.cover_medium;
   //   albumLargeTitle.textContent = album.title;
@@ -54,15 +50,9 @@ const renderSmallAlbums = async () => {
   const album = await getRandomAlbum();
   const albumHtml = `<div class="col-6 col-sm-6 col-lg-4">
       <div class="album-small-card card d-flex flex-row align-items-center">
-        <img class="card-img" src="${
-          album.cover_medium
-        }" alt="" style="width: 100px" />
+        <img class="card-img" src="${album.cover_medium}" alt="" style="width: 100px" />
         <div class="card-body">
-          <p class="card-text">${
-            album.title.length > 35
-              ? album.title.substring(0, 32) + "..."
-              : album.title
-          }</p>
+          <p class="card-text">${album.title.length > 35 ? album.title.substring(0, 32) + "..." : album.title}</p>
         </div>
       </div>
     </div>`;
@@ -84,11 +74,7 @@ const renderMediumAlbums = async () => {
         alt="Card image cap"
       />
       <div class="card-body">
-        <p class="card-text">${
-          album.title.length > 26
-            ? album.title.substring(0, 23) + "..."
-            : album.title
-        }</p>
+        <p class="card-text">${album.title.length > 26 ? album.title.substring(0, 23) + "..." : album.title}</p>
       </div>
       </div>
       <div class="album-medium-mobile-icons align-items-center justify-content-between"
@@ -140,21 +126,15 @@ const renderAlbums = () => {
   renderMainAlbum();
 
   for (let z = 0; z < 1; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
+    renderTitles().then((data) => document.getElementById("playlist").appendChild(data));
   }
 
   for (let j = 0; j < 6; j++) {
-    renderSmallAlbums().then((data) =>
-      document.getElementById("row-1").appendChild(data)
-    );
+    renderSmallAlbums().then((data) => document.getElementById("row-1").appendChild(data));
   }
 
   for (let i = 0; i < 8; i++) {
-    renderMediumAlbums().then((data) =>
-      document.getElementById("row-2").appendChild(data)
-    );
+    renderMediumAlbums().then((data) => document.getElementById("row-2").appendChild(data));
   }
 };
 

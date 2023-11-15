@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId;
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/100123";
 let trackCounter = 0;
 
 const min = 90471;
@@ -10,7 +10,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "eae5630ea0mshf3a32107d506899p1f0c5fjsn983f002173c2",
+    "X-RapidAPI-Key": "2040a53eabmshd42238176446ab0p103fbcjsn8053e71ed3c9",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -56,6 +56,7 @@ window.onload = () => {
 
       const artist = document.getElementById("artist-tag");
       artist.innerText = albumObj.artist.name;
+      artist.href = "./artist.html?id=" + albumObj.artist.id;
       const year = document.getElementById("year-tag");
       year.innerText = " · " + albumObj.release_date.substring(0, 4) + " · ";
       const trackNr = document.getElementById("tracks-nr-tag");
@@ -93,10 +94,7 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if (
-            (rankWithoutDot.length - i - 1) % 3 === 0 &&
-            i !== rankWithoutDot.length - 1
-          ) {
+          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
             rankWithDot += ".";
           }
         }
@@ -121,8 +119,6 @@ window.onload = () => {
     });
 
   for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
+    renderTitles().then((data) => document.getElementById("playlist").appendChild(data));
   }
 };
