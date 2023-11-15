@@ -4,7 +4,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "633bef796fmshdbc2bfa48ac9ed9p1af420jsn04383590067a",
+    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -35,7 +35,7 @@ const renderMainAlbum = async () => {
 
   albumLargeImg.src = album.cover_medium;
   //   albumLargeTitle.textContent = album.title;
-  albumLargeTitle.innerHTML = `<a style="text-decoration:none; color: white;" href="./album.html?id=${album.id}">${album.title}</a>`;
+  albumLargeTitle.innerHTML = `<a style="text-decoration:none; color: #f5f5f5;" href="./album.html?id=${album.id}">${album.title}</a>`;
   albumLargeContributors.textContent =
     album.contributors.length > 1
       ? `${album.contributors[0].name}, ${album.contributors[1].name}`
@@ -109,14 +109,15 @@ const renderTitles = async () => {
   tempDiv.innerHTML = playlistHTML;
 
   return tempDiv.firstElementChild;
-  
 };
 
 const renderAlbums = () => {
   renderMainAlbum();
 
-  for (let z = 0; z < 40; z++){
-    renderTitles().then((data) => document.getElementById("playlist").appendChild(data))
+  for (let z = 0; z < 40; z++) {
+    renderTitles().then((data) =>
+      document.getElementById("playlist").appendChild(data)
+    );
   }
 
   for (let j = 0; j < 6; j++) {
