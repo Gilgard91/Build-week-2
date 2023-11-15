@@ -36,10 +36,10 @@ const renderMainAlbum = async () => {
   albumLargeImg.src = album.cover_medium;
   //   albumLargeTitle.textContent = album.title;
   albumLargeTitle.innerHTML = `<a style="text-decoration:none; color: #f5f5f5;" href="./album.html?id=${album.id}">${album.title}</a>`;
-  albumLargeContributors.textContent =
+  albumLargeContributors.innerHTML =
     album.contributors.length > 1
-      ? `${album.contributors[0].name}, ${album.contributors[1].name}`
-      : album.contributors[0].name;
+      ? `<a style="text-decoration:none; color: #f5f5f5;" href="./artist.html?id=${album.artist.id}">${album.contributors[0].name}, ${album.contributors[1].name}</a>`
+      : `<a style="text-decoration:none; color: #f5f5f5;" href="./artist.html?id=${album.artist.id}">${album.contributors[0].name}</a>`;
   if (album.contributors[0].name.toLowerCase() === "artisti vari") {
     albumLargeDescription.textContent = `Ascolta il nuovo singolo di ${album.artist.name}`;
   } else {
@@ -114,7 +114,7 @@ const renderTitles = async () => {
 const renderAlbums = () => {
   renderMainAlbum();
 
-  for (let z = 0; z < 40; z++) {
+  for (let z = 0; z < 5; z++) {
     renderTitles().then((data) =>
       document.getElementById("playlist").appendChild(data)
     );

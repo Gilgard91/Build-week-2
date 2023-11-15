@@ -9,9 +9,15 @@ body {
 
 .left-column {
   background-color: black;
-  width: 350px;
+  width: 375px;
   padding-right: 2px;
   padding-left: 20px;
+}
+
+.controls-container {
+  position: sticky;
+  z-index: 999;
+  top: 0;
 }
 
 .center-column {
@@ -51,6 +57,7 @@ body {
 .playlist {
   padding-right: 25px;
   padding-top: 10px;
+  min-width: 317px;
 }
 
 .menu {
@@ -322,6 +329,362 @@ svg path {
   max-height: 67px;
 }
 
+/* FOOTER NAV */
+
+.nav-footer {
+  background: rgb(147, 147, 147);
+  background: linear-gradient(
+    180deg,
+    rgba(147, 147, 147, 0.639093137254902) 19%,
+    rgba(18, 18, 18, 0.927608543417367) 67%
+  );
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  bottom: 0;
+  color: white;
+}
+.div-nav-mob {
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+.nav-footer > div svg {
+  width: 2em;
+}
+.nav-footer p {
+  margin-bottom: 0;
+}
+
+/* ALBUM PAGE (COSMIN) */
+
+#album {
+  height: 100vh;
+  background: rgb(209, 181, 74);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  );
+}
+/* #album .main-container {
+  background: rgb(254, 255, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 255, 0, 0.9051995798319328) 9%,
+    rgba(18, 18, 18, 0.8743872549019608) 30%
+  );
+} */
+#album .first-block {
+  margin-top: 20px;
+}
+#album .album-img {
+  max-width: 300px;
+}
+#album .img-div {
+  overflow: hidden;
+  box-shadow: -2px 2px 77px 21px rgba(0, 0, 0, 0.75);
+}
+#album h1 {
+  font-weight: 700;
+  font-size: 50px;
+  margin: 0;
+  white-space: nowrap;
+  margin-bottom: 15px;
+}
+#album .info-div p,
+#album .info-div span {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+#album .info-div {
+  margin-left: 20px;
+  color: white;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+#album .artist-info {
+  align-items: center;
+}
+#album .artist-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  margin-right: 5px;
+}
+#album .artist-info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1wv;
+}
+
+#album .tot-min {
+  color: rgba(214, 214, 214, 0.763);
+  white-space: nowrap;
+}
+
+#album .second-block {
+  margin-top: 50px;
+}
+
+#album .icons {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+#album .icons i {
+  margin-inline: 15px;
+}
+#album .play-button {
+  background-color: rgb(30, 215, 96);
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#album .play-button i {
+  font-size: 2rem;
+  color: black;
+  transform: translate(3px, 0px);
+}
+
+#album .list-title {
+  white-space: nowrap;
+}
+
+#album .head {
+  padding-inline: 15px;
+  display: flex;
+  /* justify-content: space-between; */
+  border-bottom: solid 1px grey;
+}
+
+/* #album .head .head-num {
+  flex-grow: 1;
+}
+#album .head .head-tit {
+  flex-grow: 15;
+}
+#album .head .head-rip {
+  flex-grow: 12;
+}
+#album .head .head-clock {
+  flex-grow: 1;
+}
+
+
+
+#album .tracks .track-num {
+  flex-grow: 1;
+}
+*/
+#album #tracks {
+  padding-bottom: 150px;
+}
+#album .tracks p {
+  margin-bottom: 0;
+}
+#album .tracks .track-title {
+  margin: 0;
+  color: white;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#album .tracks .track-artist {
+  margin: 0;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ARTIST PAGE (ABDERRAHMANE) */
+
+/* #navbar-xl .dropdown button {
+  font-size: 12px;
+  padding: 2px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+
+#navbar-xl {
+  background-color: transparent;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+#navbar-md {
+  background-color: transparent;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  font-size: 33px;
+  padding-left: 2rem;
+  padding-top: 1.2rem;
+}
+
+#navbar-md a {
+  color: white;
+} */
+
+.test {
+  transform: translateY(-70px);
+}
+
+#artist-column {
+  background-color: #1d1d1d;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  color: white;
+}
+
+#artist-column #image-div {
+  width: 100%;
+  position: relative;
+  min-height: calc(100vh - 55%);
+  background-size: cover;
+}
+
+#artist-column #title-div {
+  margin-left: 10px;
+  /* transform: translateY(-165px); */
+  position: absolute;
+  bottom: 10px;
+}
+#artist-column #title-div span img {
+  width: 20px;
+}
+#artist-column #title-div span:first-of-type {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+#artist-column #title-div h1 {
+  margin-bottom: 14px;
+  font-weight: bolder;
+  font-size: 4rem;
+}
+
+#artist-column .play-button {
+  background-color: #1fdf64;
+  color: black;
+  border: 0;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+}
+
+#artist-column .play-button i {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  height: 100%;
+  width: 100%;
+  transform: translateX(2px);
+}
+#artist-column .main-part {
+  padding: 1rem;
+}
+#artist-column .following-button {
+  border: 1px solid white;
+  background-color: #1d1d1d;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 4px 12px;
+}
+#artist-column #top-section {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+#artist-column .main-part > div:nth-of-type(3) {
+  gap: 4rem;
+  margin-top: 1rem;
+}
+#artist-column .main-part > div:nth-of-type(3) h3 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+#artist-column .popular-songs .visualize-other {
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
+}
+#artist-column .popular-songs .song {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  font-size: 13px;
+}
+#artist-column .song img {
+  width: 2.2rem;
+}
+
+#artist-column .song > div {
+  display: flex;
+  gap: 10px;
+}
+#artist-column .song > div:first-child span:first-of-type {
+  width: 17px;
+  text-align: right;
+}
+
+#artist-column .song > div span:last-of-type {
+  font-weight: bold;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#artist-column .liked-songs img {
+  width: 60px;
+  border-radius: 50%;
+}
+#artist-column .liked-songs div > div:nth-of-type(1) span {
+  bottom: -8px;
+  right: -7px;
+  background-color: #1fdf64;
+  padding: 3px;
+  font-size: 9px;
+  color: white;
+}
+#artist-column .liked-songs div:nth-of-type(2) > div {
+  gap: 8px;
+}
+#artist-column .liked-songs div:nth-of-type(2) {
+  gap: 8px;
+}
+#artist-column .liked-songs div > span {
+  font-size: 9px;
+}
+
+#artist-column .liked-songs div > h5 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+/* MEDIA QUERY */
+
 @media screen and (max-width: 1350px) {
   .right-column {
     display: none !important;
@@ -384,5 +747,17 @@ svg path {
 
   .medium-temp-div .card-body {
     overflow: visible;
+  }
+
+  #artist-column #image-div {
+    min-height: calc(100vh - 65%);
+    background-size: cover;
+  }
+  #artist-column #title-div h1 {
+    font-size: 2rem;
+  }
+
+  #artist-column .song > div span:last-of-type {
+    width: 400px;
   }
 }
