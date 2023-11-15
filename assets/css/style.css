@@ -476,7 +476,7 @@ span {
   white-space: nowrap;
 }
 
-#album .nav-footer {
+.nav-footer {
   background: rgb(147, 147, 147);
   background: linear-gradient(180deg, rgba(147, 147, 147, 0.639093137254902) 19%, rgba(18, 18, 18, 0.927608543417367) 67%);
   position: fixed;
@@ -486,13 +486,13 @@ span {
   bottom: 0;
   color: white;
 }
-#album .div-nav-mob {
+.div-nav-mob {
   margin-bottom: 30px;
   padding-top: 20px;
 }
-#album .nav-footer > div svg {
+.nav-footer > div svg {
   width: 2em;
 }
-#album .nav-footer p {
+.nav-footer p {
   margin-bottom: 0;
 }
