@@ -109,13 +109,6 @@ body {
   column-gap: 30px;
 }
 
-#navbar-xl .dropdown button {
-  font-size: 12px;
-  padding: 2px;
-  font-weight: bold;
-  opacity: 0.6;
-}
-
 #artist-column {
   background-color: #1d1d1d;
   overflow-x: hidden;
@@ -123,26 +116,7 @@ body {
   position: relative;
   color: white;
 }
-#navbar-xl {
-  background-color: transparent;
-  position: sticky;
-  z-index: 1;
-  top: 0;
-}
-#navbar-md {
-  background-color: transparent;
-  z-index: 1;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  font-size: 33px;
-  padding-left: 2rem;
-  padding-top: 1.2rem;
-}
 
-#navbar-md a {
-  color: white;
-}
 #artist-column #image-div {
   width: 100%;
   position: relative;
