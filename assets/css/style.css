@@ -184,6 +184,7 @@ body {
 
 .album-large-content {
   /* row-gap: 10px; */
+  text-wrap: nowrap;
 }
 .album-large-content-buttons {
   column-gap: 20px;
