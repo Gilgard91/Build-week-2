@@ -10,17 +10,12 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
+    "X-RapidAPI-Key": "3633aaf1c8msh7050581d1906227p1725abjsn42012174c090",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 window.addEventListener("DOMContentLoaded", () => {
-  fetch(urlArtista, {
-    headers: {
-      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-  })
+  fetch(urlArtista, options)
     .then((res) => {
       if (res) {
         return res.json();
@@ -76,7 +71,6 @@ window.addEventListener("DOMContentLoaded", () => {
         .catch((error) => {
           console.log("CATCH BLOCK", error);
         });
-      creationSectionAlbums();
     })
     .catch((error) => {
       console.log("CATCH BLOCK", error);
@@ -148,32 +142,30 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
   }
 };
 
-const creationSectionAlbums = () => {
-  const min = 90471;
-  const max = 150000;
+const renderTitles = async () => {
+  const album = await getRandomAlbum();
+  const playlistHTML = `<p>${album.title}</p>`;
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-  };
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = playlistHTML;
 
-  const getRandomAlbum = async () => {
-    let random = Math.round(Math.random() * (max - min) + min);
-    let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+  return tempDiv.firstElementChild;
+};
 
-    const getAlbum = await fetch(urlRandomAlbum, options);
-    const result = await getAlbum.json();
-    if (result !== undefined && result.id) {
-      return result;
-    }
-    return getRandomAlbum();
-  };
-  const renderMediumAlbums = async () => {
-    const album = await getRandomAlbum();
-    const albumHtml = `<div class="col-md-6 col-lg-3">
+const getRandomAlbum = async () => {
+  let random = Math.round(Math.random() * (max - min) + min);
+  let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+
+  const getAlbum = await fetch(urlRandomAlbum, options);
+  const result = await getAlbum.json();
+  if (result !== undefined && result.id) {
+    return result;
+  }
+  return getRandomAlbum();
+};
+const renderMediumAlbums = async () => {
+  const album = await getRandomAlbum();
+  const albumHtml = `<div class="col-md-6 col-lg-3">
         <div class="album-medium-card card d-flex flex-column" >
         <div class="medium-temp-div ">
         <img
@@ -193,18 +185,16 @@ const creationSectionAlbums = () => {
         </div>
       </div>`;
 
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = albumHtml;
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = albumHtml;
 
-    return tempDiv.firstElementChild;
-  };
-  const renderAlbums = () => {
-    for (let i = 0; i < 8; i++) {
-      renderMediumAlbums().then((data) =>
-        document.getElementById("row-2").appendChild(data)
-      );
-    }
-  };
-
-  renderAlbums();
+  return tempDiv.firstElementChild;
 };
+const renderAlbums = () => {
+  for (let i = 0; i < 8; i++) {
+    renderMediumAlbums().then((data) =>
+      document.getElementById("row-2").appendChild(data)
+    );
+  }
+};
+renderAlbums();
