@@ -40,7 +40,6 @@ body {
 
 .center-column {
   /* background-color: #1a1a1a; */
-
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -721,7 +720,34 @@ svg path {
   font-size: 12px;
   margin-bottom: 0;
 }
-
+/* SEARCH PAGE */
+#search-column #search-field {
+  width: 350px;
+  background-color: #242424;
+  height: 50px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+#search-column #search-field input {
+  background-color: #242424;
+  border: 0;
+  width: 100%;
+  color: #727575;
+}
+#search-column .box-genre {
+  overflow: hidden;
+  border-radius: 21px;
+}
+#search-column .box-genre img {
+  bottom: 0;
+  right: 0;
+  rotate: 30deg;
+  transform: translateX(25%);
+}
+#search-column #container-genres {
+  color: white;
+  padding: 1rem;
+}
 /* MEDIA QUERY */
 
 @media screen and (max-width: 1350px) {
@@ -799,5 +825,10 @@ svg path {
   }
   #artist-column #image-div h1 {
     font-size: 2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  #artist-column .song > div span:last-of-type {
+    width: 100px;
   }
 }

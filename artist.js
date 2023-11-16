@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
 const idProvvisorio = 413;
 const urlArtista =
-  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
+  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idProvvisorio;
 console.log(urlArtista);
 const min = 90471;
 const max = 150000;
