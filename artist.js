@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
 const idProvvisorio = 413;
 const urlArtista =
-  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idProvvisorio;
+  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
 console.log(urlArtista);
 const min = 90471;
 const max = 150000;
@@ -10,17 +10,12 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
+    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 window.addEventListener("DOMContentLoaded", () => {
-  fetch(urlArtista, {
-    headers: {
-      "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-  })
+  fetch(urlArtista, options)
     .then((res) => {
       if (res) {
         return res.json();
@@ -50,7 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
       Array.from(ImglikedSongsDiv).forEach((img) => {
         img.setAttribute("src", artistObj.picture_big);
       });
-      const tracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${idProvvisorio}/top?limit=10`;
+      const tracklist = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=10`;
       fetch(tracklist, {})
         .then((res) => {
           if (res) {
@@ -76,7 +71,9 @@ window.addEventListener("DOMContentLoaded", () => {
         .catch((error) => {
           console.log("CATCH BLOCK", error);
         });
-      creationSectionAlbums();
+    })
+    .catch((error) => {
+      console.log("CATCH BLOCK", error);
     });
 });
 
@@ -139,55 +136,127 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
   }
 };
 
-const creationSectionAlbums = () => {
-  const min = 90471;
-  const max = 150000;
+// const getRandomSongs = async (numOfSongs) => {
+//   let randomNumber = Math.floor(Math.random() * 26);
+//   let randomLetter = String.fromCharCode(97 + randomNumber);
 
-  const getRandomAlbum = async () => {
-    let random = Math.round(Math.random() * (max - min) + min);
-    let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+//   let urlRandomSongs = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomLetter}&order=RANKING`;
+//   const getSongs = await fetch(urlRandomSongs);
+//   let result = await getSongs.json();
+//   result = result.data.filter((song) => song.title.length > 1);
+//   const randomSongs = new Set();
+//   console.log(result);
+//   while (randomSongs.size < numOfSongs) {
+//     let randomIndex = Math.round(Math.random() * (result.length - 1));
 
-    const getAlbum = await fetch(urlRandomAlbum, options);
-    const result = await getAlbum.json();
-    if (result !== undefined && result.id) {
-      return result;
-    }
-    return getRandomAlbum;
-  };
-  const renderMediumAlbums = async () => {
-    const album = await getRandomAlbum();
-    const albumHtml = `<div class="col-md-6 col-lg-3">
-        <div class="album-medium-card card d-flex flex-column" >
-        <div class="medium-temp-div ">
-        <img
-            class="card-img-top"
-            src="${album.cover_medium}"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <p class="card-text">${
-              album.title.length > 26
-                ? album.title.substring(0, 23) + "..."
-                : album.title
-            }</p>
-          </div>
-          </div>
+//     randomSongs.add(result[randomIndex]);
+//   }
+//   console.log(randomSongs);
+//   return randomSongs;
+// };
 
-        </div>
-      </div>`;
+const getRandomSongs = async (numOfSongs) => {
+  let urlRandomSongs = `https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/songs/random-song/${numOfSongs}`;
 
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = albumHtml;
+  const getSongs = await fetch(urlRandomSongs);
+  const result = await getSongs.json();
 
-    return tempDiv.firstElementChild;
-  };
-  const renderAlbums = () => {
-    for (let i = 0; i < 8; i++) {
-      renderMediumAlbums().then((data) =>
-        document.getElementById("row-2").appendChild(data)
-      );
-    }
-  };
-
-  renderAlbums();
+  return result;
 };
+
+const renderSongs = (song) => {
+  const songsHtml = `<div class="col-md-6 col-lg-3">
+    <div class="album-medium-card card d-flex flex-column" >
+    <div class="medium-temp-div ">  
+    <img
+        class="card-img-top"
+        src="${song.album.cover_medium}" 
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text">${
+          song.title.length > 15 ? song.title_short : song.title
+        }</p>
+      </div>
+      </div>
+      <div class="album-medium-mobile-icons align-items-center justify-content-between"
+                  >
+                    <div class="d-flex align-items-center gap-4">
+                      <img
+                        src="./assets/img/heart.png"
+                        style="width: 40px"
+                        alt=""
+                      />
+                      <i
+                        class="bi bi-three-dots-vertical"
+                        style="font-size: 40px; color: #b2b2b2"
+                      ></i>
+                    </div>
+                    <div>
+                      <i
+                        class="fas fa-play"
+                        style="
+                          font-size: 24px;
+                          color: #f5f5f5;
+                          background-color: rgb(36 36 36);
+                          padding: 16px;
+                          border-radius: 100%;
+                        "
+                      ></i>
+                    </div>
+                  </div>
+    </div>
+  </div>`;
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = songsHtml;
+
+  return tempDiv.firstElementChild;
+};
+
+const renderTitles = (song) => {
+  const playlistHTML = `<p>${song.title}</p>`;
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = playlistHTML;
+
+  return tempDiv.firstElementChild;
+};
+
+const renderData = async () => {
+  let songs = await getRandomSongs(12);
+  songs.forEach((song) =>
+    document.getElementById("row-2").appendChild(renderSongs(song))
+  );
+
+  let songTitles = await getRandomSongs(30);
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
+  );
+
+  // let songs = await getRandomSongs(8);
+  // songs.forEach((song) =>
+  //   document.getElementById("row-2").appendChild(renderSongs(song))
+  // );
+
+  // let playlist = new Set();
+  // for (let i = 0; i < 3; i++) {
+  //   const a = await getRandomSongs(8);
+  //   a.forEach((song) => playlist.add(song));
+  // }
+
+  // playlist.forEach((song) =>
+  //   document.getElementById("playlist").appendChild(renderTitles(song))
+  // );
+
+  // let playlist = new Set();
+  // while (playlist.size < 20) {
+  //   const a = await getRandomSongs(12);
+  //   a.forEach((song) => playlist.add(song));
+  // }
+  // playlist.forEach((song) =>
+  //   document.getElementById("playlist").appendChild(renderTitles(song))
+  // );
+};
+
+renderData();

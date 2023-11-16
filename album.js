@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/100123";
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId;
 let trackCounter = 0;
 
 const min = 90471;
@@ -10,26 +10,22 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "2040a53eabmshd42238176446ab0p103fbcjsn8053e71ed3c9",
+    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 
-const getRandomAlbum = async () => {
-  let random = Math.round(Math.random() * (max - min) + min);
-  let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+const getRandomSongs = async (numOfSongs) => {
+  let urlRandomSongs = `https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/songs/random-song/${numOfSongs}`;
 
-  const getAlbum = await fetch(urlRandomAlbum, options);
-  const result = await getAlbum.json();
-  if (result !== undefined && result.id) {
-    return result;
-  }
-  return getRandomAlbum();
+  const getSongs = await fetch(urlRandomSongs);
+  const result = await getSongs.json();
+
+  return result;
 };
 
-const renderTitles = async () => {
-  const album = await getRandomAlbum();
-  const playlistHTML = `<p>${album.title}</p>`;
+const renderTitles = (song) => {
+  const playlistHTML = `<p>${song.title}</p>`;
 
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = playlistHTML;
@@ -94,7 +90,10 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
+          if (
+            (rankWithoutDot.length - i - 1) % 3 === 0 &&
+            i !== rankWithoutDot.length - 1
+          ) {
             rankWithDot += ".";
           }
         }
@@ -103,7 +102,9 @@ window.onload = () => {
         pDuration.className = "track-length col-2";
         totDuration = JSON.stringify(obj.duration);
         const minutes = Math.floor(totDuration / 60);
+        // minutes = minutes < 10 ? "0" + minutes : minutes;
         const seconds = totDuration % 60;
+        // seconds = seconds < 10 ? "0" + seconds : seconds;
         pDuration.innerText = minutes + ":" + seconds;
 
         // APPEND
@@ -117,8 +118,26 @@ window.onload = () => {
         tracksContainer.appendChild(trackDiv);
       });
     });
-
-  for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) => document.getElementById("playlist").appendChild(data));
-  }
 };
+
+const renderSongs = async () => {
+  let songTitles = await getRandomSongs(30);
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
+  );
+};
+
+renderSongs();
+
+let navBar = document.getElementById("controls");
+let scrollDiv = document.getElementById("album");
+
+scrollDiv.addEventListener("scroll", function () {
+  let scroll = scrollDiv.scrollTop;
+  console.log(scroll);
+  if (scroll >= 300) {
+    navBar.classList.add("controls-down");
+  } else {
+    navBar.classList.remove("controls-down");
+  }
+});

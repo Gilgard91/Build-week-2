@@ -14,19 +14,47 @@ body {
   padding-left: 20px;
 }
 
+#controls {
+  transition: background-color 0.3s;
+  border-radius: 40px;
+}
+
 .controls-container {
   position: sticky;
   z-index: 999;
-  top: 0;
+  top: 5px;
+}
+
+.controls-down {
+  background-color: rgb(209 181 74 / 46%);
+  backdrop-filter: blur(3px);
+}
+#album {
+  background: rgb(209, 181, 74);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  );
+}
+
+#index-center-column {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: rgb(209, 181, 74);
+  background: linear-gradient(180deg, rgb(42 42 42) 20%, rgb(17 17 17) 40%);
+}
+/* navbar-mobile */
+.back-arrow-mob {
+  color: white;
+
+  font-size: 30px;
 }
 
 .center-column {
   /* background-color: #1a1a1a; */
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(41, 41, 41, 1) 100%
-  );
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -172,6 +200,7 @@ body {
 
 .album-large-content {
   /* row-gap: 10px; */
+  text-wrap: nowrap;
 }
 .album-large-content-buttons {
   column-gap: 20px;
@@ -194,7 +223,7 @@ body {
 .album-large-content-buttons button:nth-child(2) {
   background-color: black;
   color: #f5f5f5;
-  border: 1px solid white;
+  border: 1px solid #f5f5f5;
 }
 
 .album-large-content-buttons .bi-three-dots {
@@ -364,6 +393,9 @@ svg path {
 
 #album {
   height: 100vh;
+}
+
+#album .background-div {
   background: rgb(209, 181, 74);
   background: linear-gradient(
     180deg,
@@ -379,6 +411,7 @@ svg path {
     rgba(18, 18, 18, 0.8743872549019608) 30%
   );
 } */
+
 #album .first-block {
   margin-top: 20px;
 }
@@ -407,16 +440,17 @@ svg path {
 #album .info-div p,
 #album .info-div span {
   margin: 0;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
+  white-space: nowrap;
 }
 #album .info-div a {
   text-decoration: none;
-  color: white;
+  color: #f5f5f5;
 }
 #album .info-div {
   margin-left: 20px;
-  color: white;
+  color: #f5f5f5;
   align-self: flex-end;
   margin-top: 20px;
 }
@@ -430,6 +464,7 @@ svg path {
   margin-right: 5px;
 }
 #album .artist-info p {
+  color: rgb(31, 23, 23);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -443,6 +478,8 @@ svg path {
 
 #album .second-block {
   margin-top: 50px;
+  background-color: #1d1d1d52;
+  padding: 30px;
 }
 
 #album .icons {
@@ -456,6 +493,7 @@ svg path {
 #album .icons i {
   margin-inline: 15px;
 }
+
 #album .play-button {
   background-color: rgb(30, 215, 96);
   border-radius: 40px;
@@ -510,14 +548,14 @@ svg path {
 #album .tracks .track-title {
   margin: 0;
   color: white;
-  font-size: 0.8em;
+  font-size: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 #album .tracks .track-artist {
   margin: 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -563,7 +601,7 @@ svg path {
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
-  color: white;
+  color: #f5f5f5;
 }
 
 #artist-column #image-div {
@@ -616,9 +654,9 @@ svg path {
   padding: 1rem;
 }
 #artist-column .following-button {
-  border: 1px solid white;
+  border: 1px solid #f5f5f5;
   background-color: #1d1d1d;
-  color: white;
+  color: #f5f5f5;
   font-weight: bold;
   border-radius: 3px;
   font-size: 10px;
@@ -635,7 +673,7 @@ svg path {
   margin-top: 1rem;
 }
 #artist-column .main-part > div:nth-of-type(3) h3 {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 1rem;
   font-weight: bold;
 }
@@ -645,13 +683,13 @@ svg path {
 #artist-column .popular-songs .visualize-other {
   font-size: 12px;
   text-decoration: none;
-  color: white;
+  color: #f5f5f5;
 }
 #artist-column .popular-songs .song {
   display: flex;
   flex-direction: row;
   gap: 5rem;
-  font-size: 13px;
+  font-size: 15px;
 }
 #artist-column .song img {
   width: 2.2rem;
@@ -683,7 +721,7 @@ svg path {
   background-color: #1fdf64;
   padding: 3px;
   font-size: 9px;
-  color: white;
+  color: #f5f5f5;
 }
 #artist-column .liked-songs div:nth-of-type(2) > div {
   gap: 8px;
@@ -692,11 +730,11 @@ svg path {
   gap: 8px;
 }
 #artist-column .liked-songs div > span {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 #artist-column .liked-songs div > h5 {
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 0;
 }
 /* SEARCH PAGE */
@@ -706,6 +744,10 @@ svg path {
   height: 50px;
   border-radius: 24px;
   overflow: hidden;
+}
+
+#search-column {
+  background: linear-gradient(180deg, rgb(42 42 42) 20%, rgb(17 17 17) 40%);
 }
 #search-column #search-field input {
   background-color: #242424;
@@ -732,7 +774,7 @@ svg path {
   transform: translateX(25%);
 }
 #search-column #container-genres {
-  color: white;
+  color: #f5f5f5;
   padding: 1rem;
 }
 #search-column #search-result {
@@ -794,9 +836,9 @@ svg path {
     display: none !important;
   }
 
-  .controls-container {
+  /* .controls {
     display: none !important;
-  }
+  } */
 
   .album-medium-div-title {
     display: none !important;

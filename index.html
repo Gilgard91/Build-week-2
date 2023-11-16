@@ -136,12 +136,12 @@
         </div>
         <div id="playlist" class="playlist"></div>
       </div>
-      <div class="center-column d-flex flex-column">
+      <div id="index-center-column" class="center-column d-flex flex-column">
         <div class="controls-container container p-3">
           <div
             class="controls d-flex align-items-center justify-content-between"
           >
-            <div class="arrows">
+            <div class="arrows d-none d-md-inline-flex">
               <svg
                 data-encore-id="icon"
                 role="img"
@@ -164,7 +164,7 @@
                 ></path>
               </svg>
             </div>
-            <div class="dropdown">
+            <div class="dropdown d-none d-md-block">
               <button
                 class="btn btn-secondary dropdown-toggle"
                 type="button"
@@ -193,15 +193,18 @@
             <img src="" style="width: 250px" alt="" id="album-large-img" />
             <div class="album-large-content d-flex flex-column">
               <span>ALBUM</span>
-              <div class="row" style="width: 1038px">
-                <h1 class="col" id="album-large-title"></h1>
+              <div class="row">
+                <div class="col">
+                  <h1 id="album-large-title"></h1>
+                </div>
               </div>
               <span class="mb-2" id="album-large-contributors"></span>
               <span class="mb-4" id="album-large-description"></span>
+              <audio id="audio-player" src=""></audio>
               <div
                 class="album-large-content-buttons d-flex align-items-center"
               >
-                <button>Play</button><button>Salva</button
+                <button id="play-button">Play</button><button>Salva</button
                 ><i class="bi bi-three-dots"></i>
               </div>
             </div>

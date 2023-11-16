@@ -142,3 +142,29 @@ const creationSongs = (divSongs, songsObj, from, to) => {
     }
   }
 };
+const getRandomSongs = async (numOfSongs) => {
+  let urlRandomSongs = `https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/songs/random-song/${numOfSongs}`;
+
+  const getSongs = await fetch(urlRandomSongs);
+  const result = await getSongs.json();
+
+  return result;
+};
+
+const renderTitles = (song) => {
+  const playlistHTML = `<p>${song.title}</p>`;
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = playlistHTML;
+
+  return tempDiv.firstElementChild;
+};
+
+const renderSongs = async () => {
+  let songTitles = await getRandomSongs(30);
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
+  );
+};
+
+renderSongs();
