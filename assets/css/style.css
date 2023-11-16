@@ -592,7 +592,7 @@ svg path {
   font-weight: bolder;
   font-size: 4rem;
 }
-
+#search-column .play-button,
 #artist-column .play-button {
   background-color: #1fdf64;
   color: black;
@@ -601,7 +601,7 @@ svg path {
   width: 42px;
   border-radius: 50%;
 }
-
+#search-column .play-button i,
 #artist-column .play-button i {
   display: inline-flex;
   flex-direction: column;
@@ -712,7 +712,15 @@ svg path {
   border: 0;
   width: 100%;
   color: #727575;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
+#search-column #search-field input:active {
+  background: none;
+  outline: none;
+  padding: 0;
+}
+
 #search-column .box-genre {
   overflow: hidden;
   border-radius: 21px;
@@ -726,6 +734,49 @@ svg path {
 #search-column #container-genres {
   color: white;
   padding: 1rem;
+}
+#search-column #search-result {
+  display: none;
+}
+#search-column #search-result > .divs-result {
+  background-color: #272727;
+  border-radius: 30px;
+  padding: 12px;
+}
+#search-column #search-result > .divs-result:first-of-type {
+  padding-left: 1.5rem;
+  position: relative;
+  width: 30%;
+}
+#search-column #search-result > .divs-result:last-of-type {
+  width: 67%;
+  gap: 1rem;
+}
+#search-column #search-result > .divs-result:last-of-type img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+#search-column #search-result > .divs-result:last-of-type img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+#search-column #search-result img {
+  border-radius: 50%;
+  height: 100px;
+}
+#search-column #search-result h3 {
+  font-size: 32px;
+  margin-top: 20px;
+}
+
+#search-column .play-button {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  height: 50px;
+  width: 50px;
 }
 /* MEDIA QUERY */
 
