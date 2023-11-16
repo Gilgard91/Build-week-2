@@ -131,16 +131,13 @@ renderSongs();
 
 let navBar = document.getElementById("controls");
 let scrollDiv = document.getElementById("album");
-console.log(scrollDiv);
 
-function updateStyle() {
-  if (document.body.scrollTop >= 10 || scrollDiv.scrollTop >= 10) {
+scrollDiv.addEventListener("scroll", function () {
+  let scroll = scrollDiv.scrollTop;
+  console.log(scroll);
+  if (scroll >= 300) {
     navBar.classList.add("controls-down");
   } else {
     navBar.classList.remove("controls-down");
   }
-}
-
-window.onscroll = function () {
-  updateStyle();
-};
+});
