@@ -123,3 +123,19 @@ const renderSongs = async () => {
 };
 
 renderSongs();
+
+let navBar = document.getElementById("controls");
+let scrollDiv = document.getElementById("album");
+console.log(scrollDiv);
+
+function updateStyle() {
+  if (document.body.scrollTop >= 10 || scrollDiv.scrollTop >= 10) {
+    navBar.classList.add("controls-down");
+  } else {
+    navBar.classList.remove("controls-down");
+  }
+}
+
+window.onscroll = function () {
+  updateStyle();
+};

@@ -20,6 +20,9 @@ body {
   top: 0;
 }
 
+.controls-down {
+  background-color: black;
+}
 #album {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
@@ -467,6 +470,7 @@ svg path {
 #album .icons i {
   margin-inline: 15px;
 }
+
 #album .play-button {
   background-color: rgb(30, 215, 96);
   border-radius: 40px;
