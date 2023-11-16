@@ -164,6 +164,19 @@ const renderTitles = (song) => {
   return tempDiv.firstElementChild;
 };
 
+let navBar = document.getElementById("controls-index");
+let scrollDiv = document.getElementById("index-center-column");
+
+scrollDiv.addEventListener("scroll", function () {
+  let scroll = scrollDiv.scrollTop;
+  console.log(scroll);
+  if (scroll >= 300) {
+    navBar.classList.add("controls-down-index");
+  } else {
+    navBar.classList.remove("controls-down-index");
+  }
+});
+
 const renderAlbums = async () => {
   renderMainAlbum();
 

@@ -19,6 +19,11 @@ body {
   border-radius: 40px;
 }
 
+#controls-index {
+  transition: background-color 0.3s;
+  border-radius: 40px;
+}
+
 .controls-container {
   position: sticky;
   z-index: 999;
@@ -29,6 +34,12 @@ body {
   background-color: rgb(209 181 74 / 46%);
   backdrop-filter: blur(3px);
 }
+
+.controls-down-index {
+  background-color: rgb(124 124 124 / 33%);
+  backdrop-filter: blur(3px);
+}
+
 #album {
   background: rgb(209, 181, 74);
   background: linear-gradient(
