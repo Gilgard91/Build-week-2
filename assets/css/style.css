@@ -443,7 +443,7 @@ svg path {
   margin-right: 5px;
 }
 #album .artist-info p {
-  color: rgb(173, 173, 173);
+  color: rgb(31, 23, 23);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
