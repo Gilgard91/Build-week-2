@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/100458";
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId;
 let trackCounter = 0;
 
 const min = 90471;
@@ -90,7 +90,10 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
+          if (
+            (rankWithoutDot.length - i - 1) % 3 === 0 &&
+            i !== rankWithoutDot.length - 1
+          ) {
             rankWithDot += ".";
           }
         }
@@ -119,7 +122,9 @@ window.onload = () => {
 
 const renderSongs = async () => {
   let songTitles = await getRandomSongs(30);
-  songTitles.forEach((title) => document.getElementById("playlist").appendChild(renderTitles(title)));
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
+  );
 };
 
 renderSongs();

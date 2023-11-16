@@ -73,6 +73,20 @@ const renderMainAlbum = async () => {
         ? `Ascolta il nuovo singolo di ${album.contributors[0].name} e ${album.contributors[1].name}`
         : `Ascolta il nuovo singolo di ${album.contributors[0].name}`;
   }
+
+  let playButton = document.getElementById("play-button");
+  let audioPlayer = document.getElementById("audio-player");
+  audioPlayer.src = `${album.tracks.data[0].preview}`;
+
+  playButton.addEventListener("click", function () {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      playButton.textContent = "Pause";
+    } else {
+      audioPlayer.pause();
+      playButton.textContent = "Play";
+    }
+  });
 };
 
 const renderGenres = (genre) => {
