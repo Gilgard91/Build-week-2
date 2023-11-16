@@ -4,7 +4,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "3633aaf1c8msh7050581d1906227p1725abjsn42012174c090",
+    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -174,7 +174,7 @@ const renderAlbums = async () => {
   );
 
   let playlist = new Set();
-  while (playlist.size < 30) {
+  while (playlist.size < 20) {
     const a = await getRandomSongs(12);
     a.forEach((song) => playlist.add(song));
   }

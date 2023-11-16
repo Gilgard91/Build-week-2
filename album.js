@@ -10,7 +10,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "bfef3180demsh24facf115ac0952p1782a2jsnb7a2f295b67f",
+    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -27,14 +27,32 @@ const getRandomAlbum = async () => {
   return getRandomAlbum();
 };
 
-const renderTitles = async () => {
-  const album = await getRandomAlbum();
-  const playlistHTML = `<p>${album.title}</p>`;
+const renderTitles = (song) => {
+  const playlistHTML = `<p>${song.title}</p>`;
 
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = playlistHTML;
 
   return tempDiv.firstElementChild;
+};
+
+const getRandomSongs = async (numOfSongs) => {
+  let randomNumber = Math.floor(Math.random() * 26);
+  let randomLetter = String.fromCharCode(97 + randomNumber);
+
+  let urlRandomSongs = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomLetter}&order=RANKING`;
+  const getSongs = await fetch(urlRandomSongs);
+  let result = await getSongs.json();
+  result = result.data.filter((song) => song.title.length > 1);
+  const randomSongs = new Set();
+  console.log(result);
+  while (randomSongs.size < numOfSongs) {
+    let randomIndex = Math.round(Math.random() * (result.length - 1));
+
+    randomSongs.add(result[randomIndex]);
+  }
+  console.log(randomSongs);
+  return randomSongs;
 };
 
 window.onload = () => {
@@ -120,10 +138,17 @@ window.onload = () => {
         tracksContainer.appendChild(trackDiv);
       });
     });
-
-  for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
-  }
 };
+
+const renderSongs = async () => {
+  let playlist = new Set();
+  while (playlist.size < 20) {
+    const a = await getRandomSongs(12);
+    a.forEach((song) => playlist.add(song));
+  }
+  playlist.forEach((song) =>
+    document.getElementById("playlist").appendChild(renderTitles(song))
+  );
+};
+
+renderSongs();

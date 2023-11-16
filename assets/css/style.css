@@ -20,6 +20,15 @@ body {
   top: 0;
 }
 
+#album {
+  background: rgb(209, 181, 74);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  );
+}
+
 #index-center-column {
   flex-grow: 1;
   overflow-x: hidden;
@@ -35,13 +44,6 @@ body {
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
-
-  background: rgb(209, 181, 74);
-  background: linear-gradient(
-    180deg,
-    rgba(209, 181, 74, 1) 20%,
-    rgba(18, 18, 18, 1) 40%
-  );
 }
 
 .right-column {
