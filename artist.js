@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const artistId = params.get("id");
 const idProvvisorio = 413;
 const urlArtista =
-  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + artistId;
+  "https://deezerdevs-deezer.p.rapidapi.com/artist/" + idProvvisorio;
 console.log(urlArtista);
 const min = 90471;
 const max = 150000;
@@ -10,14 +10,14 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
+    "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 window.addEventListener("DOMContentLoaded", () => {
   fetch(urlArtista, {
     headers: {
-      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
+      "X-RapidAPI-Key": "7d5371cb6fmsh850599f723d118ap1c7305jsn7f07c92aefc1",
       "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
     }
   })
@@ -77,16 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
           console.log("CATCH BLOCK", error);
         });
       creationSectionAlbums();
-    })
-    .catch((error) => {
-      console.log("CATCH BLOCK", error);
     });
-
-  for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
-  }
 });
 
 const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
@@ -152,14 +143,6 @@ const creationSectionAlbums = () => {
   const min = 90471;
   const max = 150000;
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "3d4cd5d545msha4ba409edb6935dp18b77cjsna53631f43917",
-      "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-    }
-  };
-
   const getRandomAlbum = async () => {
     let random = Math.round(Math.random() * (max - min) + min);
     let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
@@ -169,7 +152,7 @@ const creationSectionAlbums = () => {
     if (result !== undefined && result.id) {
       return result;
     }
-    return getRandomAlbum();
+    return getRandomAlbum;
   };
   const renderMediumAlbums = async () => {
     const album = await getRandomAlbum();

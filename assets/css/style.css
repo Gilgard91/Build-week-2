@@ -22,7 +22,11 @@ body {
 
 .center-column {
   /* background-color: #1a1a1a; */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(41, 41, 41, 1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(41, 41, 41, 1) 100%
+  );
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -137,7 +141,12 @@ body {
 
 .album-large-div {
   /* background: linear-gradient(9deg, rgba(0, 0, 0, 1) 51%, rgb(69, 69, 69) 100%); */
-  background: linear-gradient(7deg, rgba(0, 0, 0, 1) 38%, rgba(0, 0, 0, 1) 43%, rgba(52, 52, 52, 1) 94%);
+  background: linear-gradient(
+    7deg,
+    rgba(0, 0, 0, 1) 38%,
+    rgba(0, 0, 0, 1) 43%,
+    rgba(52, 52, 52, 1) 94%
+  );
   column-gap: 20px;
   color: #f5f5f5;
   font-weight: bold;
@@ -328,7 +337,11 @@ svg path {
 
 .nav-footer {
   background: rgb(147, 147, 147);
-  background: linear-gradient(180deg, rgb(23 23 23 / 64%) 19%, rgb(0 0 0 / 93%) 67%);
+  background: linear-gradient(
+    180deg,
+    rgb(23 23 23 / 64%) 19%,
+    rgb(0 0 0 / 93%) 67%
+  );
   position: fixed;
   z-index: 1;
   overflow: hidden;
@@ -352,7 +365,11 @@ svg path {
 #album {
   height: 100vh;
   background: rgb(209, 181, 74);
-  background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  );
 }
 /* #album .main-container {
   background: rgb(254, 255, 0);
@@ -682,7 +699,34 @@ svg path {
   font-size: 12px;
   margin-bottom: 0;
 }
-
+/* SEARCH PAGE */
+#search-column #search-field {
+  width: 350px;
+  background-color: #242424;
+  height: 50px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+#search-column #search-field input {
+  background-color: #242424;
+  border: 0;
+  width: 100%;
+  color: #727575;
+}
+#search-column .box-genre {
+  overflow: hidden;
+  border-radius: 21px;
+}
+#search-column .box-genre img {
+  bottom: 0;
+  right: 0;
+  rotate: 30deg;
+  transform: translateX(25%);
+}
+#search-column #container-genres {
+  color: white;
+  padding: 1rem;
+}
 /* MEDIA QUERY */
 
 @media screen and (max-width: 1350px) {
@@ -760,5 +804,10 @@ svg path {
   }
   #artist-column #image-div h1 {
     font-size: 2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  #artist-column .song > div span:last-of-type {
+    width: 100px;
   }
 }
