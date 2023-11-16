@@ -18,12 +18,11 @@ const getRandomAlbum = async () => {
   if (result !== undefined && result.id) {
     return result;
   }
-  return getRandomAlbum();
+  return getRandomAlbum;
 };
 
 const getRandomGenre = async () => {
-  let urlRandomGenre =
-    "https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/genre";
+  let urlRandomGenre = "https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/genre";
 
   const getGenre = await fetch(urlRandomGenre);
   const result = await getGenre.json();
@@ -51,12 +50,8 @@ const renderMainAlbum = async () => {
   console.log(album);
   const albumLargeImg = document.getElementById("album-large-img");
   const albumLargeTitle = document.getElementById("album-large-title");
-  const albumLargeContributors = document.getElementById(
-    "album-large-contributors"
-  );
-  const albumLargeDescription = document.getElementById(
-    "album-large-description"
-  );
+  const albumLargeContributors = document.getElementById("album-large-contributors");
+  const albumLargeDescription = document.getElementById("album-large-description");
 
   albumLargeImg.src = album.cover_medium;
   //   albumLargeTitle.textContent = album.title;
@@ -101,9 +96,7 @@ const renderSongs = (song) => {
         alt="Card image cap"
       />
       <div class="card-body">
-        <p class="card-text">${
-          song.title.length > 15 ? song.title_short : song.title
-        }</p>
+        <p class="card-text">${song.title.length > 15 ? song.title_short : song.title}</p>
       </div>
       </div>
       <div class="album-medium-mobile-icons align-items-center justify-content-between"
@@ -154,19 +147,13 @@ const renderAlbums = async () => {
   renderMainAlbum();
 
   const genres = await getRandomGenre();
-  genres.forEach((genre) =>
-    document.getElementById("row-1").appendChild(renderGenres(genre))
-  );
+  genres.forEach((genre) => document.getElementById("row-1").appendChild(renderGenres(genre)));
 
   let songs = await getRandomSongs(12);
-  songs.forEach((song) =>
-    document.getElementById("row-2").appendChild(renderSongs(song))
-  );
+  songs.forEach((song) => document.getElementById("row-2").appendChild(renderSongs(song)));
 
   let songTitles = await getRandomSongs(30);
-  songTitles.forEach((title) =>
-    document.getElementById("playlist").appendChild(renderTitles(title))
-  );
+  songTitles.forEach((title) => document.getElementById("playlist").appendChild(renderTitles(title)));
 
   // let songs = await getRandomSongs(12);
   // songs.forEach((song) =>
