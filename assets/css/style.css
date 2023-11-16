@@ -23,18 +23,18 @@ body {
 .controls-down {
   background-color: black;
 }
-#album {
+/* #album {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
-}
+} */
 
 #index-center-column {
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
-
+  /* 
   background: rgb(209, 181, 74);
-  background: linear-gradient(180deg, rgb(42 42 42) 20%, rgb(17 17 17) 40%);
+  background: linear-gradient(180deg, rgb(42 42 42) 20%, rgb(17 17 17) 40%); */
 }
 /* navbar-mobile */
 .back-arrow-mob {
@@ -375,11 +375,11 @@ svg path {
 #album {
   height: 100vh;
 }
-
+/* 
 #album .background-div {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
-}
+} */
 /* #album .main-container {
   background: rgb(254, 255, 0);
   background: linear-gradient(

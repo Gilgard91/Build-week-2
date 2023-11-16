@@ -45,6 +45,7 @@ window.onload = () => {
       console.log(albumObj);
       const albumImg = document.getElementById("album-img");
       albumImg.src = albumObj.cover_medium;
+
       const h1 = document.getElementById("h1");
       h1.innerText = albumObj.title;
       const artistImg = document.getElementById("artist-img");
@@ -65,8 +66,6 @@ window.onload = () => {
       const seconds = totMinDur % 60;
       totMin.innerText = minutes + " min " + seconds + " sec.";
       albumObj.tracks.data.forEach((obj) => {
-        console.log(obj);
-
         trackCounter = trackCounter + 1;
         const tracksContainer = document.getElementById("tracks");
         const trackDiv = document.createElement("div");
@@ -90,10 +89,7 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if (
-            (rankWithoutDot.length - i - 1) % 3 === 0 &&
-            i !== rankWithoutDot.length - 1
-          ) {
+          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
             rankWithDot += ".";
           }
         }
@@ -122,9 +118,7 @@ window.onload = () => {
 
 const renderSongs = async () => {
   let songTitles = await getRandomSongs(30);
-  songTitles.forEach((title) =>
-    document.getElementById("playlist").appendChild(renderTitles(title))
-  );
+  songTitles.forEach((title) => document.getElementById("playlist").appendChild(renderTitles(title)));
 };
 
 renderSongs();
@@ -143,4 +137,56 @@ function updateStyle() {
 
 window.onscroll = function () {
   updateStyle();
+};
+
+function getColor(imageElem, ratio) {
+  const canvas = document.createElement("canvas");
+  let width = (canvas.width = imageElem.naturalWidth);
+  let height = (canvas.height = imageElem.naturalHeight);
+
+  const context = canvas.getContext("2d");
+  context.drawImage(imageElem, 0, 0);
+
+  let data, length;
+  let i = -4,
+    count = 0;
+  try {
+    data = context.getImageData(0, 0, width, height);
+    length = data.data.length;
+  } catch (err) {
+    console.error(err);
+    return {
+      R: 0,
+      G: 0,
+      B: 0
+    };
+  }
+  let R, G, B;
+  R = G = B = 0;
+  while ((i += ratio * 4) < length) {
+    ++count;
+
+    R += data.data[i];
+    G += data.data[i + 1];
+    B += data.data[i + 2];
+    console.log(R, G, B);
+  }
+  R = Math.floor(R / count);
+  G = Math.floor(G / count);
+  B = Math.floor(B / count);
+
+  console.log(R, G, B);
+  return {
+    R,
+    G,
+    B
+  };
+}
+
+const image = document.getElementById("immagine");
+console.log(image);
+image.onload = function () {
+  const { R, G, B } = getColor(image, 4);
+  document.getElementById("album").style.background = `radial-gradient(rgb(${R},${G},${B}), #333)`;
+  console.log(R, G, B);
 };
