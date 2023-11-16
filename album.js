@@ -10,21 +10,18 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
+    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
 
-const getRandomAlbum = async () => {
-  let random = Math.round(Math.random() * (max - min) + min);
-  let urlRandomAlbum = `https://deezerdevs-deezer.p.rapidapi.com/album/${random}`;
+const getRandomSongs = async (numOfSongs) => {
+  let urlRandomSongs = `https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/songs/random-song/${numOfSongs}`;
 
-  const getAlbum = await fetch(urlRandomAlbum, options);
-  const result = await getAlbum.json();
-  if (result !== undefined && result.id) {
-    return result;
-  }
-  return getRandomAlbum();
+  const getSongs = await fetch(urlRandomSongs);
+  const result = await getSongs.json();
+
+  return result;
 };
 
 const renderTitles = (song) => {
@@ -34,25 +31,6 @@ const renderTitles = (song) => {
   tempDiv.innerHTML = playlistHTML;
 
   return tempDiv.firstElementChild;
-};
-
-const getRandomSongs = async (numOfSongs) => {
-  let randomNumber = Math.floor(Math.random() * 26);
-  let randomLetter = String.fromCharCode(97 + randomNumber);
-
-  let urlRandomSongs = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomLetter}&order=RANKING`;
-  const getSongs = await fetch(urlRandomSongs);
-  let result = await getSongs.json();
-  result = result.data.filter((song) => song.title.length > 1);
-  const randomSongs = new Set();
-  console.log(result);
-  while (randomSongs.size < numOfSongs) {
-    let randomIndex = Math.round(Math.random() * (result.length - 1));
-
-    randomSongs.add(result[randomIndex]);
-  }
-  console.log(randomSongs);
-  return randomSongs;
 };
 
 window.onload = () => {
@@ -141,13 +119,9 @@ window.onload = () => {
 };
 
 const renderSongs = async () => {
-  let playlist = new Set();
-  while (playlist.size < 20) {
-    const a = await getRandomSongs(12);
-    a.forEach((song) => playlist.add(song));
-  }
-  playlist.forEach((song) =>
-    document.getElementById("playlist").appendChild(renderTitles(song))
+  let songTitles = await getRandomSongs(30);
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
   );
 };
 

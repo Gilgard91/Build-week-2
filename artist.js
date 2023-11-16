@@ -10,7 +10,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "f630d064ffmsh84bb2040185bd5ap14cc66jsn4c8ffa25bc80",
+    "X-RapidAPI-Key": "2800f46700msh59f96c5e03ffa07p183fe6jsn4a41162d104c",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -136,23 +136,32 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
   }
 };
 
+// const getRandomSongs = async (numOfSongs) => {
+//   let randomNumber = Math.floor(Math.random() * 26);
+//   let randomLetter = String.fromCharCode(97 + randomNumber);
+
+//   let urlRandomSongs = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomLetter}&order=RANKING`;
+//   const getSongs = await fetch(urlRandomSongs);
+//   let result = await getSongs.json();
+//   result = result.data.filter((song) => song.title.length > 1);
+//   const randomSongs = new Set();
+//   console.log(result);
+//   while (randomSongs.size < numOfSongs) {
+//     let randomIndex = Math.round(Math.random() * (result.length - 1));
+
+//     randomSongs.add(result[randomIndex]);
+//   }
+//   console.log(randomSongs);
+//   return randomSongs;
+// };
+
 const getRandomSongs = async (numOfSongs) => {
-  let randomNumber = Math.floor(Math.random() * 26);
-  let randomLetter = String.fromCharCode(97 + randomNumber);
+  let urlRandomSongs = `https://deezer-proxy2-6076a9afa64d.herokuapp.com/deezer/songs/random-song/${numOfSongs}`;
 
-  let urlRandomSongs = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${randomLetter}&order=RANKING`;
   const getSongs = await fetch(urlRandomSongs);
-  let result = await getSongs.json();
-  result = result.data.filter((song) => song.title.length > 1);
-  const randomSongs = new Set();
-  console.log(result);
-  while (randomSongs.size < numOfSongs) {
-    let randomIndex = Math.round(Math.random() * (result.length - 1));
+  const result = await getSongs.json();
 
-    randomSongs.add(result[randomIndex]);
-  }
-  console.log(randomSongs);
-  return randomSongs;
+  return result;
 };
 
 const renderSongs = (song) => {
@@ -215,19 +224,39 @@ const renderTitles = (song) => {
 };
 
 const renderData = async () => {
-  let songs = await getRandomSongs(8);
+  let songs = await getRandomSongs(12);
   songs.forEach((song) =>
     document.getElementById("row-2").appendChild(renderSongs(song))
   );
 
-  let playlist = new Set();
-  while (playlist.size < 20) {
-    const a = await getRandomSongs(12);
-    a.forEach((song) => playlist.add(song));
-  }
-  playlist.forEach((song) =>
-    document.getElementById("playlist").appendChild(renderTitles(song))
+  let songTitles = await getRandomSongs(30);
+  songTitles.forEach((title) =>
+    document.getElementById("playlist").appendChild(renderTitles(title))
   );
+
+  // let songs = await getRandomSongs(8);
+  // songs.forEach((song) =>
+  //   document.getElementById("row-2").appendChild(renderSongs(song))
+  // );
+
+  // let playlist = new Set();
+  // for (let i = 0; i < 3; i++) {
+  //   const a = await getRandomSongs(8);
+  //   a.forEach((song) => playlist.add(song));
+  // }
+
+  // playlist.forEach((song) =>
+  //   document.getElementById("playlist").appendChild(renderTitles(song))
+  // );
+
+  // let playlist = new Set();
+  // while (playlist.size < 20) {
+  //   const a = await getRandomSongs(12);
+  //   a.forEach((song) => playlist.add(song));
+  // }
+  // playlist.forEach((song) =>
+  //   document.getElementById("playlist").appendChild(renderTitles(song))
+  // );
 };
 
 renderData();
