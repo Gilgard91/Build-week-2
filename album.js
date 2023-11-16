@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId;
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/100458";
 let trackCounter = 0;
 
 const min = 90471;
@@ -10,7 +10,7 @@ const max = 150000;
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "bfef3180demsh24facf115ac0952p1782a2jsnb7a2f295b67f",
+    "X-RapidAPI-Key": "2040a53eabmshd42238176446ab0p103fbcjsn8053e71ed3c9",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
   }
 };
@@ -24,7 +24,7 @@ const getRandomAlbum = async () => {
   if (result !== undefined && result.id) {
     return result;
   }
-  return getRandomAlbum();
+  return getRandomAlbum;
 };
 
 const renderTitles = async () => {
@@ -94,10 +94,7 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if (
-            (rankWithoutDot.length - i - 1) % 3 === 0 &&
-            i !== rankWithoutDot.length - 1
-          ) {
+          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
             rankWithDot += ".";
           }
         }
@@ -106,7 +103,9 @@ window.onload = () => {
         pDuration.className = "track-length col-2";
         totDuration = JSON.stringify(obj.duration);
         const minutes = Math.floor(totDuration / 60);
+        // minutes = minutes < 10 ? "0" + minutes : minutes;
         const seconds = totDuration % 60;
+        // seconds = seconds < 10 ? "0" + seconds : seconds;
         pDuration.innerText = minutes + ":" + seconds;
 
         // APPEND
@@ -122,8 +121,21 @@ window.onload = () => {
     });
 
   for (let z = 0; z < 5; z++) {
-    renderTitles().then((data) =>
-      document.getElementById("playlist").appendChild(data)
-    );
+    renderTitles().then((data) => document.getElementById("playlist").appendChild(data));
   }
+};
+
+function myFunction() {
+  const centerBlock = document.getElementById("album");
+  const nav = document.getElementById("controls");
+
+  if (document.centerBlock.scrollTop > 100) {
+    document.getElementById("controls").classList.add = "controls-container-scrolled";
+  } else {
+    document.getElementById("controls").classList.add = "controls-container";
+  }
+}
+
+window.onscroll = function () {
+  myFunction();
 };
