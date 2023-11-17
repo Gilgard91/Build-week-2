@@ -19,28 +19,51 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
   </head>
   <body>
     <div class="main-content d-flex" id="main-content">
-      <div class="nav-footer d-flex justify-content-around align-items-center d-md-none">
-        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
-          <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 iYxpxA home-icon" viewBox="0 0 24 24">
+      <div
+        class="nav-footer d-flex justify-content-around align-items-center d-md-none"
+      >
+        <div
+          class="div-nav-mob d-flex flex-column align-items-center justify-content-between"
+        >
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="Svg-sc-ytk21e-0 iYxpxA home-icon"
+            viewBox="0 0 24 24"
+          >
             <path
               d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
             ></path>
           </svg>
           <p>Home</p>
         </div>
-        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
-          <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 iYxpxA search-icon" viewBox="0 0 24 24">
+        <div
+          class="div-nav-mob d-flex flex-column align-items-center justify-content-between"
+        >
+          <svg
+            data-encore-id="icon"
+            role="img"
+            aria-hidden="true"
+            class="Svg-sc-ytk21e-0 iYxpxA search-icon"
+            viewBox="0 0 24 24"
+          >
             <path
               d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
             ></path>
           </svg>
           <p>Cerca</p>
         </div>
-        <div class="div-nav-mob d-flex flex-column align-items-center justify-content-between">
+        <div
+          class="div-nav-mob d-flex flex-column align-items-center justify-content-between"
+        >
           <svg
             data-encore-id="icon"
             role="img"
@@ -59,7 +82,13 @@
         <div class="menu d-flex flex-column row-gap-2">
           <span><i class="bi bi-three-dots"></i></span>
           <span>
-            <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 iYxpxA home-icon" viewBox="0 0 24 24">
+            <svg
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 iYxpxA home-icon"
+              viewBox="0 0 24 24"
+            >
               <path
                 d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
               ></path></svg
@@ -90,65 +119,89 @@
             >La tua libreria</span
           ><span><i class="fas fa-plus-square"></i> Crea playlist</span
           ><span
-            ><img src="./assets/img/7e97f477e8f5202cca770cd994274ac1.png" style="width: 21px" alt="" /> Brani che ti
-            piacciono</span
+            ><img
+              src="./assets/img/7e97f477e8f5202cca770cd994274ac1.png"
+              style="width: 21px"
+              alt=""
+            />
+            Brani che ti piacciono</span
           ><span class="mb-4"
-            ><img src="./assets/img/Screenshot_2023-11-13_114740.png" style="width: 21px" alt="" /> I tuoi episodi</span
+            ><img
+              src="./assets/img/Screenshot_2023-11-13_114740.png"
+              style="width: 21px"
+              alt=""
+            />
+            I tuoi episodi</span
           >
         </div>
         <div id="playlist" class="playlist"></div>
       </div>
       <div class="center-column d-flex flex-column" id="album">
-        <div class="controls-container container p-3" id="controls">
-          <div class="controls d-flex align-items-center justify-content-between">
-            <a class="bi bi-arrow-left back-arrow-mob d-md-none" href="./index.html"></a>
-            <div class="arrows d-none d-md-inline-flex">
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF previous"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
-                ></path>
-              </svg>
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF next"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
-                ></path>
-              </svg>
-            </div>
-            <div class="dropdown d-none d-md-block">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="./assets/img/Spotify_logo_without_text.svg.png" style="width: 20px" alt="" />
-                Spotify acc...
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
         <!-- ALBUM  -->
 
         <div class="main-container" id="main-container">
           <div class="background-div" id="scroll-container">
+            <div class="controls-container container p-3" id="controls">
+              <div
+                class="controls d-flex align-items-center justify-content-between"
+              >
+                <a
+                  class="bi bi-arrow-left back-arrow-mob d-md-none"
+                  href="./index.html"
+                ></a>
+                <div class="arrows d-none d-md-inline-flex">
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF previous"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                    ></path>
+                  </svg>
+                  <svg
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF next"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="dropdown d-none d-md-block">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="./assets/img/Spotify_logo_without_text.svg.png"
+                      style="width: 20px"
+                      alt=""
+                    />
+                    Spotify acc...
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div class="first-block px-md-4 d-block d-md-flex">
               <div class="d-flex d-md-block div-album-img">
-                <img src="#" alt="album" class="album-img" id="album-img" />
+                <img src="" alt="album" class="album-img" id="album-img" />
               </div>
               <div class="info-div">
                 <p class="d-none d-md-block">ALBUM</p>
@@ -156,14 +209,20 @@
                 <div class="d-block d-md-flex artist-info">
                   <div class="d-flex align-items-center">
                     <img src="#" alt="" id="artist-img" class="artist-img" />
-                    <a class="d-md-inline me-1" id="artist-tag">Pinguini Tattici Nucleari</a>
+                    <a class="d-md-inline me-1" id="artist-tag"
+                      >Pinguini Tattici Nucleari</a
+                    >
                     <p class="d-none d-md-block" id="year-tag">· 2017 ·</p>
-                    <p class="d-none d-md-inline me-2" id="tracks-nr-tag">12 brani,</p>
+                    <p class="d-none d-md-inline me-2" id="tracks-nr-tag">
+                      12 brani,
+                    </p>
                   </div>
 
                   <p class="d-inline d-md-none">Album</p>
                   <p class="d-inline d-md-none" id="year-tag-2">· 2017</p>
-                  <span class="tot-min d-none d-md-inline" id="tot-min">&nbsp;53 min 20 sec</span>
+                  <span class="tot-min d-none d-md-inline" id="tot-min"
+                    >&nbsp;53 min 20 sec</span
+                  >
                 </div>
               </div>
             </div>
@@ -212,14 +271,20 @@
       </div>
       <div class="right-column d-flex flex-column">
         <div class="friends-div">
-          <div class="activity d-flex justify-content-between align-items-center">
+          <div
+            class="activity d-flex justify-content-between align-items-center"
+          >
             <h6 class="m-0">Attività amici</h6>
-            <div class="activity-icons d-flex"><i class="bi bi-person-plus"></i><i class="bi bi-x"></i></div>
+            <div class="activity-icons d-flex">
+              <i class="bi bi-person-plus"></i><i class="bi bi-x"></i>
+            </div>
           </div>
           <div class="user">
-            <img src="./assets/img/profile-pic.jpg" alt="" />
+            <img src="./assets/img/search/image-13.jpeg" alt="" />
             <div class="user-content">
-              <div class="user-title d-flex flex-row justify-content-between align-items-center">
+              <div
+                class="user-title d-flex flex-row justify-content-between align-items-center"
+              >
                 <h4 class="m-0">Charlie Hookman</h4>
                 <span>4 ore</span>
               </div>
@@ -228,25 +293,29 @@
             </div>
           </div>
           <div class="user">
-            <img src="./assets/img/profile-pic.jpg" alt="" />
+            <img src="./assets/img/search/image-16.jpg" alt="" />
             <div class="user-content">
-              <div class="user-title d-flex flex-row justify-content-between align-items-center">
-                <h4 class="m-0">Charlie Hookman</h4>
-                <span>4 ore</span>
+              <div
+                class="user-title d-flex flex-row justify-content-between align-items-center"
+              >
+                <h4 class="m-0">lightdark02</h4>
+                <span>8 ore</span>
               </div>
-              <span>In camera • Youmi Zouma</span>
-              <span><i class="bi bi-clock"></i> EP III</span>
+              <span>Aimed to kill • Jade LeMac</span>
+              <span><i class="bi bi-clock"></i> Aimed to kill</span>
             </div>
           </div>
           <div class="user">
-            <img src="./assets/img/profile-pic.jpg" alt="" />
+            <img src="./assets/img/search/image-15.jpg" alt="" />
             <div class="user-content">
-              <div class="user-title d-flex flex-row justify-content-between align-items-center">
-                <h4 class="m-0">Charlie Hookman</h4>
+              <div
+                class="user-title d-flex flex-row justify-content-between align-items-center"
+              >
+                <h4 class="m-0">Stefano Miceli</h4>
                 <span>4 ore</span>
               </div>
-              <span>In camera • Youmi Zouma</span>
-              <span><i class="bi bi-clock"></i> EP III</span>
+              <span>New Kings • Sleeping Wolf</span>
+              <span><i class="bi bi-clock"></i> Twint Badass mood</span>
             </div>
           </div>
         </div>

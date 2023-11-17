@@ -19,16 +19,35 @@ body {
   border-radius: 40px;
 }
 
+#controls-index {
+  transition: background-color 0.3s;
+  border-radius: 40px;
+}
+
 .controls-container {
   position: sticky;
   z-index: 999;
   top: 5px;
 }
 
-/* #album {
-  background: rgb(209, 181, 74);
-  background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
-} */
+.controls-down {
+  background-color: rgb(209 181 74 / 46%);
+  backdrop-filter: blur(3px);
+}
+
+.controls-down-index {
+  background-color: rgb(124 124 124 / 33%);
+  backdrop-filter: blur(3px);
+}
+
+#album {
+  /* background: rgb(209, 181, 74);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  ); */
+}
 
 #index-center-column {
   flex-grow: 1;
@@ -145,6 +164,7 @@ body {
 
 .user-content {
   row-gap: 3px;
+  min-width: 185px;
 }
 
 .user-content h4 {
@@ -217,6 +237,24 @@ body {
   font-size: 30px;
   color: #bababa;
 }
+
+/* .bar {
+  width: 5px;
+  height: 30px;
+  background-color: white;
+  margin: 0 5px;
+  display: inline-block;
+  animation: equalizerAnimation 0.5s infinite alternate;
+}
+
+@keyframes equalizerAnimation {
+  0% {
+    height: 5px;
+  }
+  100% {
+    height: 30px;
+  }
+} */
 
 .album-small-div {
   color: #f5f5f5;
@@ -349,6 +387,83 @@ svg path {
   display: none;
 }
 
+/* AUDIO CONTROLS NAV */
+
+.audiocontrols-nav {
+  z-index: 999;
+  height: 100px;
+  background: linear-gradient(180deg, rgb(26 26 26) 10%, rgb(17 17 17) 60%);
+  border-top: 1px solid #595959;
+}
+
+.audio-album-div {
+  column-gap: 15px;
+  overflow: hidden;
+  max-width: 222px;
+}
+
+.audio-album-info {
+  text-wrap: nowrap;
+}
+
+audio[controls] {
+  display: none;
+}
+
+#progressRange {
+  width: 500px;
+  margin: 10px 10px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  border-radius: 50px;
+  background: #1ed760;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+#volumeRange {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 7px;
+  border-radius: 50px;
+  background: #8a8a8a;
+  outline: none;
+}
+
+#volumeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+#audio-album-name {
+  font-size: 18px;
+  color: #f5f5f5;
+  text-wrap: no-wrap;
+}
+
+.volume-section-content {
+  column-gap: 20px;
+  margin-right: 0;
+}
+
 /* FOOTER NAV */
 
 .nav-footer {
@@ -379,8 +494,20 @@ svg path {
 }
 /* 
 #album .background-div {
-  background: rgb(209, 181, 74);
-  background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
+  /* background: rgb(209, 181, 74);
+  background: linear-gradient(
+    180deg,
+    rgba(209, 181, 74, 1) 20%,
+    rgba(18, 18, 18, 1) 40%
+  ); */
+
+/* #album .main-container {
+  background: rgb(254, 255, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 255, 0, 0.9051995798319328) 9%,
+    rgba(18, 18, 18, 0.8743872549019608) 30%
+  );
 } */
 #album .main-container {
   background: rgb(254, 255, 0);
@@ -455,6 +582,7 @@ svg path {
   margin-top: 50px;
   background-color: #1d1d1d52;
   padding: 30px;
+  /* height: 100vh; */
 }
 
 #album .icons {
@@ -534,6 +662,14 @@ svg path {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tracklist {
+  height: 100vh;
+}
+
+.audio-row {
+  padding-top: 13px;
 }
 
 /* ARTIST PAGE (ABDERRAHMANE) */
@@ -826,5 +962,20 @@ svg path {
 @media screen and (max-width: 600px) {
   #artist-column .song > div span:last-of-type {
     width: 100px;
+  }
+}
+
+@media screen and (max-width: 1033px) {
+  .progress-bar,
+  .audio-album-info {
+    display: none !important;
+  }
+
+  .volume-section-content {
+    margin-right: 60px;
+  }
+
+  #volumeRange {
+    width: 110px;
   }
 }

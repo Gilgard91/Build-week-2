@@ -51,6 +51,10 @@ const renderMainAlbum = async () => {
   console.log(album);
   const albumLargeImg = document.getElementById("album-large-img");
   const albumLargeTitle = document.getElementById("album-large-title");
+  const audioAlbumName = document.getElementById("audio-album-name");
+  const audioArtistName = document.getElementById("audio-artist-name");
+  const audioAlbumImg = document.getElementById("audio-album-img");
+
   const albumLargeContributors = document.getElementById(
     "album-large-contributors"
   );
@@ -74,19 +78,100 @@ const renderMainAlbum = async () => {
         : `Ascolta il nuovo singolo di ${album.contributors[0].name}`;
   }
 
+  audioAlbumImg.src = album.cover_medium;
+  audioAlbumName.innerHTML = `<span id="audio-album-name">${album.title}</span>`;
+  audioArtistName.innerHTML = `<span id="audio-artist-name">${album.artist.name}</span>`;
+
   let playButton = document.getElementById("play-button");
   let audioPlayer = document.getElementById("audio-player");
   audioPlayer.src = `${album.tracks.data[0].preview}`;
+  let bars = document.querySelectorAll(".bar");
+  let playPauseBtn = document.getElementById("audio-icon");
+  let audio = document.getElementById("myAudio");
+  audio.src = `${album.tracks.data[0].preview}`;
+  let volumeRange = document.getElementById("volumeRange");
+  let progressRange = document.getElementById("progressRange");
+  let currentTimeSpan = document.getElementById("currentTime");
+  let durationSpan = document.getElementById("duration");
+
+  // audio.addEventListener("canplay", function () {
+  //   progressRange.value = 0;
+  //   volumeRange.value = 0.5;
+  // });
+
+  let isPlaying = false;
+
+  function play() {
+    audioPlayer.play();
+    audio.play();
+
+    bars.forEach(function (bar, index) {
+      bar.style.animationDuration = (index + 1) * 0.2 + "s";
+    });
+
+    playButton.textContent = "Pause";
+    playPauseBtn.innerHTML =
+      "<i class='fas fa-pause' style='color: #fafafa;'></i>";
+
+    isPlaying = true;
+  }
+
+  function pause() {
+    audioPlayer.pause();
+    audio.pause();
+
+    bars.forEach(function (bar) {
+      bar.style.animation = "none";
+    });
+
+    playButton.textContent = "Play";
+    playPauseBtn.innerHTML =
+      "<i class='fas fa-play' style='color: #fafafa'></i>";
+
+    isPlaying = false;
+  }
 
   playButton.addEventListener("click", function () {
-    if (audioPlayer.paused) {
-      audioPlayer.play();
-      playButton.textContent = "Pause";
+    if (isPlaying) {
+      pause();
     } else {
-      audioPlayer.pause();
-      playButton.textContent = "Play";
+      play();
     }
   });
+
+  playPauseBtn.addEventListener("click", function () {
+    if (isPlaying) {
+      pause();
+    } else {
+      play();
+    }
+  });
+
+  volumeRange.addEventListener("input", function () {
+    audioPlayer.volume = volumeRange.value;
+    audio.volume = volumeRange.value;
+  });
+
+  progressRange.addEventListener("input", function () {
+    var progress = (progressRange.value / 100) * audio.duration;
+    audio.currentTime = progress;
+    audioPlayer.currentTime = progress;
+  });
+
+  audio.addEventListener("timeupdate", function () {
+    var progress = (audio.currentTime / audio.duration) * 100;
+    progressRange.value = progress;
+
+    currentTimeSpan.textContent = formatTime(audio.currentTime);
+    durationSpan.textContent = "0:30";
+  });
+
+  function formatTime(time) {
+    var minutes = Math.floor(time / 60);
+    var seconds = Math.floor(time % 60);
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    return minutes + ":" + seconds;
+  }
 };
 
 const renderGenres = (genre) => {
@@ -163,6 +248,19 @@ const renderTitles = (song) => {
 
   return tempDiv.firstElementChild;
 };
+
+let navBar = document.getElementById("controls-index");
+let scrollDiv = document.getElementById("index-center-column");
+
+scrollDiv.addEventListener("scroll", function () {
+  let scroll = scrollDiv.scrollTop;
+  console.log(scroll);
+  if (scroll >= 300) {
+    navBar.classList.add("controls-down-index");
+  } else {
+    navBar.classList.remove("controls-down-index");
+  }
+});
 
 const renderAlbums = async () => {
   renderMainAlbum();
