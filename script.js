@@ -194,6 +194,7 @@ const renderSongs = (song) => {
   const songsHtml = `<div class="col-md-6 col-lg-3">
     <div class="album-medium-card card d-flex flex-column" >
     <div class="medium-temp-div ">  
+    
     <img
         class="card-img-top"
         src="${song.album.cover_medium}" 
