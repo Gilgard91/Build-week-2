@@ -77,7 +77,7 @@ body {
 }
 /* navbar-mobile */
 .back-arrow-mob {
-  color: white;
+  color: #f5f5f5;
 
   font-size: 30px;
 }
@@ -684,7 +684,7 @@ audio[controls] {
 }
 #album .tracks .track-title {
   margin: 0;
-  color: white;
+  color: #f5f5f5;
   font-size: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
