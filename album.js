@@ -45,6 +45,44 @@ window.onload = () => {
       console.log(albumObj);
       const albumImg = document.getElementById("album-img");
       albumImg.src = albumObj.cover_medium;
+
+      const imgForAverage = new Image();
+      imgForAverage.src = albumObj.cover_medium;
+      const div = document.getElementById("scroll-container");
+      const colorThief = new ColorThief();
+      console.log(colorThief);
+
+      imgForAverage.crossOrigin = "Anonymous";
+
+      imgForAverage.addEventListener("load", function () {
+        let averageColor = colorThief.getColor(imgForAverage);
+        div.style.background = `linear-gradient(180deg, rgb( ${averageColor[0]} ${averageColor[1]} ${averageColor[2]} ) 24%, rgb( 42 42 42 ) 34%)`;
+      });
+
+      let navBar = document.getElementById("controls");
+      let scrollDiv = document.getElementById("album");
+
+      scrollDiv.addEventListener("scroll", function () {
+        let averageColor = colorThief.getColor(imgForAverage);
+        let scroll = scrollDiv.scrollTop;
+        console.log(scroll);
+        if (scroll >= 300) {
+          navBar.style.backgroundColor = `rgb( ${averageColor[0]} ${averageColor[1]} ${averageColor[2]} / 40% )`;
+          navBar.style.backdropFilter = "blur(3px)";
+        } else {
+          navBar.style.backgroundColor = "transparent";
+        }
+      });
+
+      // if (imgForAverage.complete) {
+      //   const averageColor = colorThief.getColor(imgForAverage);
+      //   div.style.backgroundColor = `rgb(${averageColor[0]}, ${averageColor[1]}, ${averageColor[2]})`;
+      // } else {
+      //   imgForAverage.addEventListener("load", function () {
+      //     colorThief.getColor(imgForAverage);
+      //   });
+      // }
+
       const h1 = document.getElementById("h1");
       h1.innerText = albumObj.title;
       const artistImg = document.getElementById("artist-img");
@@ -128,16 +166,3 @@ const renderSongs = async () => {
 };
 
 renderSongs();
-
-let navBar = document.getElementById("controls");
-let scrollDiv = document.getElementById("album");
-
-scrollDiv.addEventListener("scroll", function () {
-  let scroll = scrollDiv.scrollTop;
-  console.log(scroll);
-  if (scroll >= 300) {
-    navBar.classList.add("controls-down");
-  } else {
-    navBar.classList.remove("controls-down");
-  }
-});

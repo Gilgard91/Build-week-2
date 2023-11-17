@@ -41,12 +41,12 @@ body {
 }
 
 #album {
-  background: rgb(209, 181, 74);
+  /* background: rgb(209, 181, 74);
   background: linear-gradient(
     180deg,
     rgba(209, 181, 74, 1) 20%,
     rgba(18, 18, 18, 1) 40%
-  );
+  ); */
 }
 
 #index-center-column {
@@ -494,12 +494,12 @@ audio[controls] {
 }
 
 #album .background-div {
-  background: rgb(209, 181, 74);
+  /* background: rgb(209, 181, 74);
   background: linear-gradient(
     180deg,
     rgba(209, 181, 74, 1) 20%,
     rgba(18, 18, 18, 1) 40%
-  );
+  ); */
 }
 /* #album .main-container {
   background: rgb(254, 255, 0);
@@ -578,6 +578,7 @@ audio[controls] {
   margin-top: 50px;
   background-color: #1d1d1d52;
   padding: 30px;
+  /* height: 100vh; */
 }
 
 #album .icons {
@@ -657,6 +658,10 @@ audio[controls] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tracklist {
+  height: 100vh;
 }
 
 /* ARTIST PAGE (ABDERRAHMANE) */
