@@ -145,6 +145,19 @@ const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
   }
 };
 
+let navBar = document.getElementById("controls-artist");
+let scrollDiv = document.getElementById("artist-column");
+
+scrollDiv.addEventListener("scroll", function () {
+  let scroll = scrollDiv.scrollTop;
+  console.log(scroll);
+  if (scroll >= 300) {
+    navBar.classList.add("controls-down-index");
+  } else {
+    navBar.classList.remove("controls-down-index");
+  }
+});
+
 // const getRandomSongs = async (numOfSongs) => {
 //   let randomNumber = Math.floor(Math.random() * 26);
 //   let randomLetter = String.fromCharCode(97 + randomNumber);
