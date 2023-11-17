@@ -65,7 +65,7 @@ window.onload = () => {
       scrollDiv.addEventListener("scroll", function () {
         let averageColor = colorThief.getColor(imgForAverage);
         let scroll = scrollDiv.scrollTop;
-        console.log(scroll);
+
         if (scroll >= 300) {
           navBar.style.backgroundColor = `rgb( ${averageColor[0]} ${averageColor[1]} ${averageColor[2]} / 40% )`;
           navBar.style.backdropFilter = "blur(3px)";
@@ -176,10 +176,8 @@ window.onload = () => {
         //   bar.style.animationDuration = (index + 1) * 0.2 + "s";
         // });
 
-        playButton.innerHTML =
-          "<i class='bi bi-pause-fill' style='color: black;'></i>";
-        playPauseBtn.innerHTML =
-          "<i class='fas fa-pause' style='color: #fafafa;'></i>";
+        playButton.innerHTML = "<i class='bi bi-pause-fill' style='color: black;'></i>";
+        playPauseBtn.innerHTML = "<i class='fas fa-pause' style='color: #fafafa;'></i>";
 
         isPlaying = true;
       }
@@ -193,8 +191,7 @@ window.onload = () => {
         // });
 
         playButton.innerHTML = " <i class='bi bi-play-fill'></i>";
-        playPauseBtn.innerHTML =
-          "<i class='fas fa-play' style='color: #fafafa'></i>";
+        playPauseBtn.innerHTML = "<i class='fas fa-play' style='color: #fafafa'></i>";
 
         isPlaying = false;
       }
