@@ -36,6 +36,11 @@ body {
   border-radius: 40px;
 }
 
+#controls-search {
+  transition: background-color 0.3s;
+  border-radius: 40px;
+}
+
 .controls-container {
   position: sticky;
   z-index: 999;
@@ -882,6 +887,19 @@ audio[controls] {
   margin-bottom: 0;
 }
 /* SEARCH PAGE */
+
+#title-result {
+  color: #f5f5f5;
+}
+
+#other-results {
+  color: #f5f5f5;
+}
+
+#search-result {
+  color: #f5f5f5;
+}
+
 #search-column #search-field {
   width: 350px;
   background-color: #242424;
