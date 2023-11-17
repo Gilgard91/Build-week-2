@@ -45,6 +45,7 @@ window.onload = () => {
       console.log(albumObj);
       const albumImg = document.getElementById("album-img");
       albumImg.src = albumObj.cover_medium;
+
       const h1 = document.getElementById("h1");
       h1.innerText = albumObj.title;
       const artistImg = document.getElementById("artist-img");
@@ -65,8 +66,6 @@ window.onload = () => {
       const seconds = totMinDur % 60;
       totMin.innerText = minutes + " min " + seconds + " sec.";
       albumObj.tracks.data.forEach((obj) => {
-        console.log(obj);
-
         trackCounter = trackCounter + 1;
         const tracksContainer = document.getElementById("tracks");
         const trackDiv = document.createElement("div");
@@ -90,10 +89,7 @@ window.onload = () => {
         let rankWithDot = "";
         for (let i = 0; i < rankWithoutDot.length; i++) {
           rankWithDot += rankWithoutDot[i];
-          if (
-            (rankWithoutDot.length - i - 1) % 3 === 0 &&
-            i !== rankWithoutDot.length - 1
-          ) {
+          if ((rankWithoutDot.length - i - 1) % 3 === 0 && i !== rankWithoutDot.length - 1) {
             rankWithDot += ".";
           }
         }
@@ -122,22 +118,7 @@ window.onload = () => {
 
 const renderSongs = async () => {
   let songTitles = await getRandomSongs(30);
-  songTitles.forEach((title) =>
-    document.getElementById("playlist").appendChild(renderTitles(title))
-  );
+  songTitles.forEach((title) => document.getElementById("playlist").appendChild(renderTitles(title)));
 };
 
 renderSongs();
-
-let navBar = document.getElementById("controls");
-let scrollDiv = document.getElementById("album");
-
-scrollDiv.addEventListener("scroll", function () {
-  let scroll = scrollDiv.scrollTop;
-  console.log(scroll);
-  if (scroll >= 300) {
-    navBar.classList.add("controls-down");
-  } else {
-    navBar.classList.remove("controls-down");
-  }
-});
