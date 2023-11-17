@@ -48,6 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
                   const artistImg = document.querySelector(
                     "#search-column #search-result img"
                   );
+                  const a = document.querySelector(
+                    "#search-column #search-result a"
+                  );
+                  a.setAttribute(
+                    "href",
+                    `./artist.html?id=${result.artist.id}`
+                  );
                   const artistName = document.querySelector(
                     "#search-column #search-result h3"
                   );
