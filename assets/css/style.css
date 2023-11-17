@@ -546,7 +546,7 @@ audio[controls] {
   margin: 0;
   white-space: nowrap;
   margin-bottom: 15px;
-
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.541);
   text-overflow: ellipsis;
 }
 #album .info-div a,
@@ -556,6 +556,7 @@ audio[controls] {
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.541);
 }
 #album .info-div a {
   text-decoration: none;
@@ -577,7 +578,7 @@ audio[controls] {
   margin-right: 5px;
 }
 #album .artist-info p {
-  color: rgb(173, 173, 173);
+  color: rgba(214, 214, 214, 0.763);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -598,7 +599,8 @@ audio[controls] {
 
 #album .icons {
   font-size: 30px;
-  display: flex;
+  display: inline-flex;
+  width: 80%;
   align-items: center;
   margin-bottom: 30px;
   justify-content: space-between;
@@ -607,13 +609,18 @@ audio[controls] {
 #album .icons i {
   margin-inline: 15px;
 }
+#album #play-button-mobile {
+  position: sticky;
+  top: 50px;
+  z-index: 999;
+}
 
 #album .play-button {
   background-color: rgb(30, 215, 96);
   border-radius: 40px;
   width: 50px;
   height: 50px;
-  display: flex;
+
   align-items: center;
   justify-content: center;
 }
