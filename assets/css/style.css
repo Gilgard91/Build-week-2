@@ -20,9 +20,6 @@ body {
   top: 0;
 }
 
-.controls-down {
-  background-color: black;
-}
 /* #album {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
@@ -380,14 +377,10 @@ svg path {
   background: rgb(209, 181, 74);
   background: linear-gradient(180deg, rgba(209, 181, 74, 1) 20%, rgba(18, 18, 18, 1) 40%);
 } */
-/* #album .main-container {
+#album .main-container {
   background: rgb(254, 255, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(254, 255, 0, 0.9051995798319328) 9%,
-    rgba(18, 18, 18, 0.8743872549019608) 30%
-  );
-} */
+  background: linear-gradient(180deg, rgba(254, 255, 0, 0.9051995798319328) 9%, rgba(18, 18, 18, 0.8743872549019608) 30%);
+}
 
 #album .first-block {
   margin-top: 20px;
@@ -441,7 +434,7 @@ svg path {
   margin-right: 5px;
 }
 #album .artist-info p {
-  color: rgb(31, 23, 23);
+  color: rgb(173, 173, 173);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
