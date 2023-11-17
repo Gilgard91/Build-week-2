@@ -5,7 +5,6 @@ const headers = {
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
 };
 const urlSearch = "https://deezerdevs-deezer.p.rapidapi.com/search";
-
 window.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("container-genres");
   fetch(urlGenres, {
@@ -52,6 +51,12 @@ window.addEventListener("DOMContentLoaded", () => {
                   const artistName = document.querySelector(
                     "#search-column #search-result h3"
                   );
+
+                  const resutsH3 = document.getElementById("title-result");
+                  resutsH3.style.display = "block";
+                  const otherResutsH3 =
+                    document.getElementById("other-results");
+                  otherResutsH3.style.display = "block";
                   const typeResult = document.querySelector(
                     "#search-column #search-result span"
                   );
@@ -65,7 +70,12 @@ window.addEventListener("DOMContentLoaded", () => {
               );
               divSongs.innerHTML = "";
               container.style.display = "none";
+
               creationSongs(divSongs, searchResObj, 0, 5);
+              document.getElementById("row-2").innerHTML = "";
+              document.getElementById("row-2").style.display = "flex";
+
+              renderData();
             })
             .catch((error) => {
               console.log("CATCH BLOCK", error);
@@ -151,6 +161,56 @@ const getRandomSongs = async (numOfSongs) => {
   return result;
 };
 
+const renderSongsMedium = (song) => {
+  const songsHtml = `<div class="col-md-6 col-lg-3">
+    <div class="album-medium-card card d-flex flex-column" >
+    <div class="medium-temp-div ">  
+    <img
+        class="card-img-top"
+        src="${song.album.cover_medium}" 
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <p class="card-text">${
+          song.title.length > 15 ? song.title_short : song.title
+        }</p>
+      </div>
+      </div>
+      <div class="album-medium-mobile-icons align-items-center justify-content-between"
+                  >
+                    <div class="d-flex align-items-center gap-4">
+                      <img
+                        src="./assets/img/heart.png"
+                        style="width: 40px"
+                        alt=""
+                      />
+                      <i
+                        class="bi bi-three-dots-vertical"
+                        style="font-size: 40px; color: #b2b2b2"
+                      ></i>
+                    </div>
+                    <div>
+                      <i
+                        class="fas fa-play"
+                        style="
+                          font-size: 24px;
+                          color: #f5f5f5;
+                          background-color: rgb(36 36 36);
+                          padding: 16px;
+                          border-radius: 100%;
+                        "
+                      ></i>
+                    </div>
+                  </div>
+    </div>
+  </div>`;
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = songsHtml;
+
+  return tempDiv.firstElementChild;
+};
+
 const renderTitles = (song) => {
   const playlistHTML = `<p>${song.title}</p>`;
 
@@ -159,7 +219,12 @@ const renderTitles = (song) => {
 
   return tempDiv.firstElementChild;
 };
-
+const renderData = async () => {
+  let songs = await getRandomSongs(12);
+  songs.forEach((song) =>
+    document.getElementById("row-2").appendChild(renderSongsMedium(song))
+  );
+};
 const renderSongs = async () => {
   let songTitles = await getRandomSongs(30);
   songTitles.forEach((title) =>
