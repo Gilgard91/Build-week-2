@@ -74,15 +74,6 @@ window.onload = () => {
         }
       });
 
-      // if (imgForAverage.complete) {
-      //   const averageColor = colorThief.getColor(imgForAverage);
-      //   div.style.backgroundColor = `rgb(${averageColor[0]}, ${averageColor[1]}, ${averageColor[2]})`;
-      // } else {
-      //   imgForAverage.addEventListener("load", function () {
-      //     colorThief.getColor(imgForAverage);
-      //   });
-      // }
-
       const h1 = document.getElementById("h1");
       h1.innerText = albumObj.title;
       const artistImg = document.getElementById("artist-img");
@@ -155,6 +146,105 @@ window.onload = () => {
         trackDiv.appendChild(pDuration);
         tracksContainer.appendChild(trackDiv);
       });
+
+      let audioAlbumImg = document.getElementById("audio-album-img");
+      audioAlbumImg.src = albumObj.cover_medium;
+      const audioAlbumName = document.getElementById("audio-album-name");
+      const audioArtistName = document.getElementById("audio-artist-name");
+      audioAlbumName.innerHTML = `<span id="audio-album-name">${albumObj.title}</span>`;
+      audioArtistName.innerHTML = `<span id="audio-artist-name">${albumObj.artist.name}</span>`;
+
+      let playButton = document.getElementById("play-button");
+      let audioPlayer = document.getElementById("audio-player");
+      audioPlayer.src = `${albumObj.tracks.data[0].preview}`;
+      // let bars = document.querySelectorAll(".bar");
+      let playPauseBtn = document.getElementById("audio-icon");
+      let audio = document.getElementById("myAudio");
+      audio.src = `${albumObj.tracks.data[0].preview}`;
+      let volumeRange = document.getElementById("volumeRange");
+      let progressRange = document.getElementById("progressRange");
+      let currentTimeSpan = document.getElementById("currentTime");
+      let durationSpan = document.getElementById("duration");
+
+      // audio.addEventListener("canplay", function () {
+      //   progressRange.value = 0;
+      //   volumeRange.value = 0.5;
+      // });
+
+      let isPlaying = false;
+
+      function play() {
+        audioPlayer.play();
+        audio.play();
+
+        // bars.forEach(function (bar, index) {
+        //   bar.style.animationDuration = (index + 1) * 0.2 + "s";
+        // });
+
+        playButton.innerHTML =
+          "<i class='bi bi-pause-fill' style='color: black;'></i>";
+        playPauseBtn.innerHTML =
+          "<i class='fas fa-pause' style='color: #fafafa;'></i>";
+
+        isPlaying = true;
+      }
+
+      function pause() {
+        audioPlayer.pause();
+        audio.pause();
+
+        // bars.forEach(function (bar) {
+        //   bar.style.animation = "none";
+        // });
+
+        playButton.innerHTML = " <i class='bi bi-play-fill'></i>";
+        playPauseBtn.innerHTML =
+          "<i class='fas fa-play' style='color: #fafafa'></i>";
+
+        isPlaying = false;
+      }
+
+      playButton.addEventListener("click", function () {
+        if (isPlaying) {
+          pause();
+        } else {
+          play();
+        }
+      });
+
+      playPauseBtn.addEventListener("click", function () {
+        if (isPlaying) {
+          pause();
+        } else {
+          play();
+        }
+      });
+
+      volumeRange.addEventListener("input", function () {
+        audioPlayer.volume = volumeRange.value;
+        audio.volume = volumeRange.value;
+      });
+
+      progressRange.addEventListener("input", function () {
+        var progress = (progressRange.value / 100) * audio.duration;
+        audio.currentTime = progress;
+        audioPlayer.currentTime = progress;
+      });
+
+      audio.addEventListener("timeupdate", function () {
+        var progress = (audio.currentTime / audio.duration) * 100;
+        progressRange.value = progress;
+
+        currentTimeSpan.textContent = formatTime(audio.currentTime);
+        durationSpan.textContent = "0:30";
+      });
+
+      function formatTime(time) {
+        var minutes = Math.floor(time / 60);
+        var seconds = Math.floor(time % 60);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        return minutes + ":" + seconds;
+      }
     });
 };
 

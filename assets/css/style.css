@@ -24,6 +24,11 @@ body {
   border-radius: 40px;
 }
 
+#controls-artist {
+  transition: background-color 0.3s;
+  border-radius: 40px;
+}
+
 .controls-container {
   position: sticky;
   z-index: 999;
@@ -41,6 +46,7 @@ body {
 }
 
 #album {
+  background-color: #262626;
   /* background: rgb(209, 181, 74);
   background: linear-gradient(
     180deg,
@@ -614,7 +620,7 @@ audio[controls] {
 #album .play-button i {
   font-size: 2rem;
   color: black;
-  transform: translate(3px, 0px);
+  transform: translate(1px, 0px);
 }
 
 #album .list-title {
@@ -904,6 +910,10 @@ audio[controls] {
   /* .controls {
     display: none !important;
   } */
+
+  #controls-index {
+    display: none !important;
+  }
 
   .album-medium-div-title {
     display: none !important;
