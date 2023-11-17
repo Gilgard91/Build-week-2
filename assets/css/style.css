@@ -600,7 +600,7 @@ audio[controls] {
 #album .icons {
   font-size: 30px;
   display: inline-flex;
-  width: 80%;
+  width: 75%;
   align-items: center;
   margin-bottom: 30px;
   justify-content: space-between;
