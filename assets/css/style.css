@@ -470,7 +470,7 @@ audio[controls] {
   background: rgb(147, 147, 147);
   background: linear-gradient(180deg, rgb(23 23 23 / 64%) 19%, rgb(0 0 0 / 93%) 67%);
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   overflow: hidden;
   width: 100%;
   bottom: 0;
@@ -741,7 +741,7 @@ audio[controls] {
   font-weight: bolder;
   font-size: 4rem;
 }
-
+#search-column .play-button,
 #artist-column .play-button {
   background-color: #1fdf64;
   color: black;
@@ -750,7 +750,7 @@ audio[controls] {
   width: 42px;
   border-radius: 50%;
 }
-
+#search-column .play-button i,
 #artist-column .play-button i {
   display: inline-flex;
   flex-direction: column;
@@ -833,6 +833,10 @@ audio[controls] {
   padding: 3px;
   font-size: 9px;
   color: #f5f5f5;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding-top: 4.5px;
 }
 #artist-column .liked-songs div:nth-of-type(2) > div {
   gap: 8px;
@@ -859,13 +863,18 @@ audio[controls] {
 
 #search-column {
   background: linear-gradient(180deg, rgb(42 42 42) 20%, rgb(17 17 17) 40%);
+  padding: 1rem;
 }
 #search-column #search-field input {
   background-color: #242424;
   border: 0;
   width: 100%;
   color: #727575;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin-right: 1rem;
 }
+
 #search-column .box-genre {
   overflow: hidden;
   border-radius: 21px;
@@ -879,6 +888,49 @@ audio[controls] {
 #search-column #container-genres {
   color: #f5f5f5;
   padding: 1rem;
+}
+#search-column #search-result {
+  display: none;
+}
+#search-column #search-result > .divs-result {
+  background-color: #272727;
+  border-radius: 30px;
+  padding: 12px;
+}
+#search-column #search-result > .divs-result:first-of-type {
+  padding-left: 1.5rem;
+  position: relative;
+  width: 30%;
+}
+#search-column #search-result > .divs-result:last-of-type {
+  width: 67%;
+  gap: 1rem;
+}
+#search-column #search-result > .divs-result:last-of-type img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+#search-column #search-result > .divs-result:last-of-type img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+#search-column #search-result img {
+  border-radius: 50%;
+  height: 100px;
+}
+#search-column #search-result h3 {
+  font-size: 32px;
+  margin-top: 20px;
+}
+
+#search-column .play-button {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  height: 50px;
+  width: 50px;
 }
 /* MEDIA QUERY */
 

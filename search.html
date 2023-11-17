@@ -27,7 +27,7 @@
   <body>
     <div class="main-content d-flex">
       <div
-        class="nav-footer d-flex justify-content-around align-items-center d-md-none"
+        class="nav-footer d-flex justify-content-around align-items-center d-md-none z-5"
       >
         <div
           class="div-nav-mob d-flex flex-column align-items-center justify-content-between"
@@ -137,11 +137,11 @@
         <div id="playlist" class="playlist"></div>
       </div>
       <div id="search-column" class="center-column d-flex flex-column">
-        <div class="controls-container container p-3">
+        <div class="controls-container container p-3 mx-0">
           <div
             class="controls d-flex align-items-center justify-content-between"
           >
-            <div class="d-flex align-items-center gap-4">
+            <div class="d-flex align-items-center gap-0">
               <div class="arrows">
                 <svg
                   data-encore-id="icon"
@@ -149,6 +149,7 @@
                   aria-hidden="true"
                   class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF previous"
                   viewBox="0 0 16 16"
+                  style="width: 45px"
                 >
                   <path
                     d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
@@ -157,8 +158,9 @@
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
-                  class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF next"
+                  class="Svg-sc-ytk21e-0 kgVuXA IYDlXmBmmUKHveMzIPCF next d-none d-md-inline-flex"
                   viewBox="0 0 16 16"
+                  style="width: 45px"
                 >
                   <path
                     d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
@@ -184,7 +186,7 @@
                 />
               </div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown d-none d-lg-inline-flex">
               <button
                 class="btn btn-secondary dropdown-toggle"
                 type="button"
@@ -208,6 +210,23 @@
             </div>
           </div>
         </div>
+
+        <h2 class="mt-5" id="title-result" style="display: none">Risultati:</h2>
+        <div
+          id="search-result"
+          class="p-3 flex-row justify-content-between align-items-start"
+        >
+          <div class="divs-result">
+            <img src="" alt="" />
+            <h3></h3>
+            <span></span>
+          </div>
+          <div class="divs-result grow-1"></div>
+        </div>
+        <h2 class="mt-2 mb-3" id="other-results" style="display: none">
+          Ad altri Piace:
+        </h2>
+        <div id="row-2" class="row px-3 g-3"></div>
         <div id="container-genres">
           <h2>Tutti i generi:</h2>
         </div>

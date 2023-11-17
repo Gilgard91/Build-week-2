@@ -78,6 +78,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const creationPopularSongs = (divPopularSongs, songsObj, from, to) => {
+  if (songsObj.data.length > 0) {
+    const popularTitle = document.getElementById("popular-songs-title");
+    popularTitle.style.display = "block";
+  } else {
+    const likedSongs = document.querySelectorAll("#artist-column .liked-songs");
+    Array.from(likedSongs).forEach((div) => {
+      div.className = "d-none";
+    });
+  }
   console.log(songsObj.data.length);
   for (let i = from; i < to; i++) {
     if (songsObj.data.length > i) {
